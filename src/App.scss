@@ -176,14 +176,14 @@ body {
 
 .content-wrapper {
   border-bottom: 0.1px solid #cad5d5;
-
+  z-index: 6;
   padding: 0 10rem;
 
   .navigation {
     margin: 1rem 0;
     display: flex;
     justify-content: space-between;
-
+    z-index: 6;
     padding: 0 6rem;
 
     &-logo {
@@ -191,10 +191,13 @@ body {
 
 
       a {
+        z-index: 10;
+
         img {
           width: 7rem;
-          height: 7rem;
+          height: 6rem;
           border-radius: 2.5rem;
+
         }
       }
     }
@@ -224,6 +227,8 @@ body {
         }
 
       }
+
+
 
       a {
         position: absolute;
@@ -353,17 +358,14 @@ body {
 ////////////////*/
 
 .main-home {
-  padding: 0 10rem;
+  padding: 0 8rem;
   background-color: #f5f5f5;
   position: relative;
   clear: both;
   display: flex;
   padding-bottom: 3rem;
   // height: 50.1rem;
-
-
-
-  // .categories{
+  z-index: -10 // .categories{
 
   //   min-width: 27rem;
   //   height: 50.3rem;
@@ -500,6 +502,15 @@ body {
   //       background:url('./img/adbar1.jpg');
   //     }
   //   }
+}
+
+.searchedP {
+  position: absolute;
+  background: #fff;
+  width: 1283px;
+  margin: 0.5rem -14rem 0 !important;
+  padding: 1rem;
+  z-index: 5;
 }
 
 //end of  categories styles
@@ -882,6 +893,8 @@ body {
 }
 
 .search-container {
+  width: 100%;
+  margin-left: 0;
 
   .searchprod {
     width: 100%;
@@ -896,7 +909,8 @@ body {
     height: 17rem;
     padding: 1rem;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
+    margin: 1rem;
     // border: #FED700 solid 1px;
     border-right: 0.00000000001rem solid #cad5d5;
 
@@ -6546,7 +6560,7 @@ about Ends Here
       display: flex;
       width: 100%;
       // justify-content: space-between;
-
+      z-index: 6;
       padding: 0 0rem;
 
       &-logo {
@@ -8326,6 +8340,15 @@ about Ends Here
       width: 200px;
       height: 140px;
     }
+  }
+
+  .searchedP {
+
+    width: 580px;
+    margin: 1rem -0.8rem 0 !important;
+    padding: 2rem auto;
+    z-index: 5;
+    align-items: center;
   }
 
   .addToButtons {

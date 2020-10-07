@@ -28,7 +28,7 @@ const UpdateProduct = ( { match }) => {
         category: '',
         brand: '',
         quantity: '',
-        images: '',
+        images: [],
         loading: false,
         error: false,
         createdProduct: '',
@@ -44,6 +44,7 @@ const UpdateProduct = ( { match }) => {
         description,
         price,
         // categories,
+        images,
          short_description,
         category,
         brand,
@@ -70,6 +71,7 @@ const UpdateProduct = ( { match }) => {
                     description: data.description,
                     short_description: data.short_description,
                     price: data.price,
+                    images: data.images,
                     brand: data.brand,
                     category: data.category._id,
                     quantity: data.quantity,
@@ -114,7 +116,8 @@ const UpdateProduct = ( { match }) => {
                     ...values,
                     title: '',
                     description: '',
-                    photo: '',
+                    short_description: '',
+                    images: [],
                     price: '',
                     brand: '',
                     quantity: '',
@@ -132,7 +135,7 @@ const UpdateProduct = ( { match }) => {
          <div className="addProductPage">
             <div className="productForm" >
                 <Form onSubmit={onSubmit} >
-                     <FileUpload  onChange={handleChange('images')} refreshFunction={updateImages} accept="image/*" />
+                     <FileUpload  onChange={handleChange('images')} refreshFunction={updateImages} accept="images/*"  value={images} />
 
       <div className="inputFields d-flex">
         <div className="col-md-6 col-sm-12">
@@ -180,7 +183,7 @@ const UpdateProduct = ( { match }) => {
                                                 ))}
                                         </select>
                                     </div>
-        </div>
+            </div>
 
                  <div className="col-md-6 col-sm-12">
                 <div className="productInput">
@@ -197,10 +200,14 @@ const UpdateProduct = ( { match }) => {
 
                                     <label>Short Description</label>
 
-                                    <textarea style={{ width: '400px', height: '200px' }}
+                                    <textarea 
+                                    style={{ width: '400px', height: '200px' }}
                                         onChange={handleChange('short_description')}
                                         value={short_description}
-                                    ></textarea>
+
+                                    >
+
+                                    </textarea>
 
 
                                 </div>
@@ -220,7 +227,7 @@ const UpdateProduct = ( { match }) => {
                             </div>
                             <div className="addProductBtn">
 
-                                <button onClick={onSubmit}>Add Product</button>
+                                <button onClick={onSubmit}>Update Product</button>
                             </div>
                         </div>
         </Form>
