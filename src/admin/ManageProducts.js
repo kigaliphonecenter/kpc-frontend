@@ -38,7 +38,7 @@ const ManageProducts = () => {
         <Layout
             title="Manage Products"
             description="Perform CRUD on products"
-            className="container-fluid"
+            className="container-fluid mt-5"
         >
             <div className="row">
                 <div className="col-md-9 m-auto">

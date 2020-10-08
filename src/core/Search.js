@@ -69,7 +69,7 @@ const Search = () => {
 
     const searchedProducts = (results = []) => {
         return (
-            <div  className="row overlap searchedP">
+            <div id='searchprod' className="row overlap searchedP">
                 <div className=" search-container  ">
                     <h2 className=" mb-4">
                         {searchMessage(searched, results)}

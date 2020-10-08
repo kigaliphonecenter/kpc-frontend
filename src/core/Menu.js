@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, withRouter, Redirect } from "react-router-dom";
 import { signout, isAuthenticated } from "../auth";
 import { itemTotal } from "./cartHelpers";
 import img1 from '../img/11.2 shopping-bag.svg.svg'
@@ -14,7 +14,14 @@ const isActive = (history, path) => {
     }
 };
 
-const Menu = ({ history }) => (
+const Menu = ({ history }) =>{
+     const refreshPage = () => {
+    window.location.reload(false);
+    window.location.pathname = '/'
+   
+  } 
+return (
+    
     <div>
         <div className="horizontal-line">
             <div className="containerNav">
@@ -159,10 +166,12 @@ const Menu = ({ history }) => (
         <div className="content-wrapper">
             <nav className="navigation">
                 <div className="navigation-logo">
-                    <Link to="/">
+                    <Link to='/'  onClick={refreshPage} >
 
-                       <img src={logo} alt=""/>
-
+              
+                       <img   src={logo} alt=""/>
+        
+         
                     </Link>
                 </div>
 
@@ -198,5 +207,5 @@ const Menu = ({ history }) => (
         </div>
     </div>
 );
-
+}
 export default withRouter(Menu);
