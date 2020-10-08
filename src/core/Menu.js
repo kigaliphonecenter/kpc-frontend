@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { Link, withRouter, Redirect } from "react-router-dom";
+// import Mailto from 'react-mailto';
 import { signout, isAuthenticated } from "../auth";
 import { itemTotal } from "./cartHelpers";
 import img1 from '../img/11.2 shopping-bag.svg.svg'
@@ -20,6 +21,7 @@ const Menu = ({ history }) =>{
     window.location.pathname = '/'
    
   } 
+  
 return (
     
     <div>
@@ -32,8 +34,18 @@ return (
                     <section className="header-info">
                         <div className="header-info-text">
                             <ul>
-                                <li><i className="fas fa-phone-volume"></i>+250788 285 979</li>
-                                <li><i className="far fa-envelope"></i>kigaliphones@gmail.com</li>
+                                <li><i className="fab fa-whatsapp"></i>
+                                 <a href="https://wa.me/message/SJKXVM2EKVS7E1" target="_blank">+250 727 311 429</a></li>
+
+                                <li><i className="far fa-envelope"></i>
+                                
+                                  <a href="mailto:kigaliphones@gmail.com" >
+                                
+                                kigaliphones@gmail.com
+                                
+                                 </a>
+                                
+                                </li>
                                 <li><Link to="/"><img src={logo} alt=""/></Link></li>
                             </ul>
                         </div>
