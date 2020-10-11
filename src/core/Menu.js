@@ -3,7 +3,8 @@ import { Link, withRouter, Redirect } from "react-router-dom";
 // import Mailto from 'react-mailto';
 import { signout, isAuthenticated } from "../auth";
 import { itemTotal } from "./cartHelpers";
-import img1 from '../img/11.2 shopping-bag.svg.svg'
+import img1 from '../img/11.2 shopping-bag.svg.svg';
+import img2 from '../img/shopping-cart.svg';
 import Search from './Search'
 import logo from '../img/logo.jpg'
 
@@ -21,10 +22,29 @@ const Menu = ({ history }) =>{
     window.location.pathname = '/'
    
   } 
+     const refreshAboutPage = () => {
+    window.location.reload(false);
+    window.location.pathname = '/about'
+   
+  } 
+     const refreshFaqPage = () => {
+    window.location.reload(false);
+    window.location.pathname = '/faq'
+   
+  } 
+     const refreshContactPage = () => {
+    window.location.reload(false);
+    window.location.pathname = '/contact'
+   
+  } 
   
 return (
     
-    <div>
+   <div className="what">
+        <div className="fix">
+
+            <a href="https://wa.me/message/SJKXVM2EKVS7E1" target="_blank" title="Contact Us"><i className="fab fa-whatsapp"></i></a>
+        </div>
         <div className="horizontal-line">
             <div className="containerNav">
 
@@ -57,6 +77,7 @@ return (
                                     <Link
                                         style={isActive(history, "/about")}
                                         to="/about"
+                                        onClick={refreshAboutPage}
                                     >
                                         <i className="far fa-address-card"></i>
 
@@ -73,6 +94,7 @@ return (
 
                                         style={isActive(history, "/faq")}
                                         to="/faq"
+                                         onClick={refreshFaqPage}
                                     >
                                         <i className="far fa-address-book"></i>
 
@@ -89,6 +111,7 @@ return (
 
                                         style={isActive(history, "/contact")}
                                         to="/contact"
+                                         onClick={refreshContactPage}
                                     >
                                         <i className="fas fa-mobile-alt"></i>
 
@@ -109,6 +132,7 @@ return (
 
                                             style={isActive(history, "/user/dashboard")}
                                             to="/user/dashboard"
+
                                         >
                                             <i className="far fa-user"></i> Account
                     </Link>
@@ -193,12 +217,12 @@ return (
                 <div className="navigation-links">
 
 
-
                     <ul className="icons">
                         <li>  <Link to="/" >Home</Link> </li>
-                        <li>  <Link title="Shop"
+                        {/* <li>  <Link to="/" onClick={refreshPage}>Home</Link> </li>  */}
+                      <li>  <Link title="Shop"
                             style={isActive(history, "/shop")}
-                            to="/shop" ><i className="fas fa-shopping-cart"></i> <span>Shop</span></Link> </li>
+                            to="/shop" > <img src={img1} alt="" /></Link> </li>
                         <li> <Link to="/wishlist" title="WishList"><i className="far fa-heart"></i></Link></li>
 
 
@@ -209,7 +233,8 @@ return (
                                 to="/cart"
                                 title="Cart"
                             >
-                                <img src={img1} alt="" />
+                                <img src={img2} alt="" />
+                                
                                 <sup> <span className='item-count '>{itemTotal()}</span></sup>
                             </Link>
                         </li>

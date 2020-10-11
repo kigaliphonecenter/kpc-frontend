@@ -49,9 +49,7 @@ const Search = () => {
     const searchSubmit = e => {
         e.preventDefault();
         searchData();
-           if (searchedProducts()) {
-            return <Redirect to="/search" />;
-        }
+        
     };
 
     const handleChange = name => event => {
@@ -71,7 +69,7 @@ const Search = () => {
         return (
             <div id='searchprod' className="row overlap searchedP">
                 <div className=" search-container  ">
-                    <h2 className=" mb-4">
+                    <h2 className="text-center">
                         {searchMessage(searched, results)}
                     </h2>
 
@@ -99,7 +97,7 @@ const Search = () => {
                     onChange={handleChange("search")}
                     placeholder="Search by name"
                 />
-                <Link to=''> <i className="fas fa-search" ></i></Link>
+                <Link to='' onClick={searchSubmit}> <i className="fas fa-search" ></i></Link>
 
 
             </div>
