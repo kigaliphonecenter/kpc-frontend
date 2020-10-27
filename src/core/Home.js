@@ -6,7 +6,7 @@ import { Col, Row, Button } from 'antd';
 import Icon from '@ant-design/icons';
 import ShowImage from './Tools/ShowImage';
 import { getProducts, getProductsBySell, getDailyProducts, getCategories, getFilteredProducts } from "./apiCore";
-import Checkbox from "./Checkbox";
+import List from "./ListCategories";
 import { addItem, addWishlistItem } from './cartHelpers';
 import Menu from './Menu'
 import Footer from './Footer'
@@ -306,7 +306,18 @@ const Home = (props) => {
       <Menu />
 
       <div className="main-home" >
-
+  <section className="categories">
+    <h2><i className="fas fa-bars"></i>Categories</h2>
+    <ul className="main-categories">
+       <List
+               categories={categories}
+              handleFilters={filters =>
+              handleFilters(filters, "category")
+     }
+                                />
+   </ul>
+  <a href=""><div className="other-ad"></div></a> 
+   </section>
         <section className='slider-info'>
           <div className="slide-container">
 
