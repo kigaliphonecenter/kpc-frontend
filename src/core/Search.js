@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, Redirect } from 'react-router-dom';
 import { getCategories, list } from "./apiCore";
-import Card from "./UCard";
+import Card from "./SearchCard";
 // import Menu from './Menu'
 // import Footer from './Footer'
 
@@ -67,15 +67,15 @@ const Search = () => {
 
     const searchedProducts = (results = []) => {
         return (
-            <div id='searchprod' className="row overlap searchedP">
+            <div id='searchprod' className="row overlap searchedP ">
                 <div className=" search-container  ">
                     <h2 className="text-center">
                         {searchMessage(searched, results)}
                     </h2>
 
-                    <div className="searchprod row" >
+                    <div className="searchprod row ml-1" >
                         {results.map((product, i) => (
-                            <div key={i} className=" col-md-3 col-sm-12 mb-3">
+                            <div key={i} className="col-lg-3 col-md-4 col-sm-6 mb-3">
                                 <Card product={product} />
                             </div>
                         ))}

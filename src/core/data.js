@@ -11,7 +11,7 @@ export const prices = [{
   {
     _id: 2,
     name: "Rwf 100k to Rwf 199k",
-    array: [1000000, 199000]
+    array: [100000, 199000]
   },
   {
     _id: 3,

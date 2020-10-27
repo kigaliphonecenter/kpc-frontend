@@ -56,6 +56,7 @@ const Routes = () => {
         <Route path="/about" exact component={About} />
         <Route path="/contact" exact component={Contact} />
         <Route path="/forbidden" exact component={Forbidden} />
+
       </Switch>
     </BrowserRouter>
   );

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { Col, Row, Button } from 'antd';
 import Icon from '@ant-design/icons';
 import ShowImage from './Tools/ShowImage';
-import { getProducts,getProductsBySell,getDailyProducts, getCategories, getFilteredProducts } from "./apiCore";
+import { getProducts, getProductsBySell, getDailyProducts, getCategories, getFilteredProducts } from "./apiCore";
 import Checkbox from "./Checkbox";
 import { addItem, addWishlistItem } from './cartHelpers';
 import Menu from './Menu'
@@ -73,9 +73,9 @@ const Home = (props) => {
       }
 
     });
-  }; 
- const loadProductsByDay = () => {
-    getDailyProducts('price' ).then(data => {
+  };
+  const loadProductsByDay = () => {
+    getDailyProducts('price').then(data => {
       if (data.error) {
         setError(data.error);
       } else {
@@ -96,7 +96,7 @@ const Home = (props) => {
   };
 
   const loadProductsBySell = () => {
-    getProductsBySell('price' ).then(data => {
+    getProductsBySell('price').then(data => {
       if (data.error) {
         setError(data.error);
       } else {
@@ -160,11 +160,12 @@ const Home = (props) => {
       addWishlistItem(product, setRedirect(true));
       console.log('added');
     };
-    return <ul key={index}  id="autoWidth" className="cS-hidden">
-     <li className="item-a">
-       <div className="daily-product">
-           <Link to="" className="daily-product-category">{product.brand}</Link>
-           <div className="product-info-container">
+    return <ul key={index} id="autoWidth" className="cS-hidden">
+        <Link to={`/product/${product._id}`}>
+      <li className="item-a">
+        <div className="daily-product">
+          <Link to="" className="daily-product-category">{product.brand}</Link>
+          <div className="product-info-container">
 
             <div className="daily-product-description">
               <Link to={`/product/${product._id}`}>
@@ -190,10 +191,11 @@ const Home = (props) => {
               <Link to="/wishlist" onClick={addToWishlist} title="Add to WishList"><i className="far fa-heart"></i>WishList</Link>
             </div>
           </div>
-       </div>
-     </li>
+        </div>
+      </li>
+          </Link>
 
-     
+
 
     </ul>
 
@@ -211,7 +213,7 @@ const Home = (props) => {
       console.log('added');
     };
     return <div key={index} className="daily-product">
-
+<Link to={`/product/${product._id}`}>
 
       <Link to="" className="daily-product-category">{product.brand}</Link>
       <div className="product-info-container">
@@ -240,6 +242,7 @@ const Home = (props) => {
           <Link to="/wishlist" onClick={addToWishlist} title="Add to WishList"><i className="far fa-heart"></i>WishList</Link>
         </div>
       </div>
+      </Link>
     </div>
 
   })
@@ -250,17 +253,18 @@ const Home = (props) => {
       addItem(product, setRedirect(true));
       console.log('added');
     };
-const addToWishlist = () => {
+    const addToWishlist = () => {
       addWishlistItem(product, setRedirect(true));
       console.log('added');
     };
     return <div key={index} className="product-item">
+    
       <div className="product-image">
         <Link to={`/product/${product._id}`}>
           <ShowImage images={product.images} />
         </Link>
       </div>
-
+<Link className="text-decoration-none" to={`/product/${product._id}`}>
       <div className="product-description">
         <div className="product-border">
           <div className="product-category">
@@ -288,7 +292,7 @@ const addToWishlist = () => {
           </div>
         </div>
       </div>
-
+</Link>
 
 
     </div>
@@ -305,10 +309,10 @@ const addToWishlist = () => {
 
         <section className='slider-info'>
           <div className="slide-container">
-        
+
             <ImageSlider />
 
-          
+
           </div>
 
           <div className="other-categories">
@@ -336,22 +340,22 @@ const addToWishlist = () => {
         </section>
       </div>
 
-<section className="daily-deals">
-   <div className="daily-deals-header">
-    
-      <div className="daily-deals-title"> <h3>Deals Of The Day</h3></div>
-     <div className="countdown">Ends in: 00:00:00</div>
-   </div>
-     <section className="slider">
-     {renderCardByDay}
-   </section>
-</section>
- <section className="big-ad1-container">
-   <div className="big-ad1">
-     <a href=""><img src={asset} alt=""/></a>
-   </div>
- </section>
- 
+      <section className="daily-deals">
+        <div className="daily-deals-header">
+
+          <div className="daily-deals-title"> <h3>Deals Of The Day</h3></div>
+          <div className="countdown">Ends in: 00:00:00</div>
+        </div>
+        <section className="slider">
+          {renderCardByDay}
+        </section>
+      </section>
+      <section className="big-ad1-container">
+        <div className="big-ad1">
+          <a href=""><img src={asset} alt="" /></a>
+        </div>
+      </section>
+
 
       <div className="new-arrivals">
         <div className="arrivals-header">
@@ -367,76 +371,76 @@ const addToWishlist = () => {
         </div>
 
       </div>
-       <section className="big-ad4">
-   
-        <div className="big-ad-image"><a href=""><img src={smallAd} alt=""/></a></div>
-        <div className="big-ad-image"><a href=""><img src={smallAd} alt=""/></a></div>
-     
- 
-       </section>
+      <section className="big-ad4">
+
+        <div className="big-ad-image"><a href=""><img src={smallAd} alt="" /></a></div>
+        <div className="big-ad-image"><a href=""><img src={smallAd} alt="" /></a></div>
+
+
+      </section>
       <section className="best-sellers">
-       <div className="sellers-header">
+        <div className="sellers-header">
 
           <div className="sellers-title">             <h3>Best Sellers</h3>  </div>
 
         </div>
-      
 
 
-          {/* <div className="tab"> */}
-            <div className="content-container">
-              {renderCardBySell}
-            </div>
-          {/* </div> */}
+
+        {/* <div className="tab"> */}
+        <div className="content-container">
+          {renderCardBySell}
+        </div>
+        {/* </div> */}
         {/* </div> */}
       </section>
 
 
       <section className="big-ad2-container">
         <div className="big-ad2">
-          <a href=""><img src={asset} alt=""/></a>
+          <a href=""><img src={asset} alt="" /></a>
         </div>
       </section>
       {/* Parteners */}
 
-    <section className="partners">
-      <div className="partners-header">
-        <div className="partners-title">
-          <h3>Partners</h3>
-        </div>
-      </div>
-      <div className="partners-logo">
-        <div className="logo">
-          <img src={partner} alt=""/>
-        </div>
-      </div>
-    </section>
-    
-    <section className="trust">
-      <div className="trust-content">
-        <div className="content">
-          <div className="content-icon"><i className="fas fa-truck"></i></div>
-          <div className="content-text">
-            <p>FREE SHIPPING</p>
-            <p>free shipping on all products.</p>
+      <section className="partners">
+        <div className="partners-header">
+          <div className="partners-title">
+            <h3>Partners</h3>
           </div>
         </div>
-        <div className="content">
-          <div className="content-icon"><i className="fas fa-wallet"></i></div>
-          <div className="content-text">
-            <p>trusted provider</p>
-            <p>trusted by our customers.</p>
+        <div className="partners-logo">
+          <div className="logo">
+            <img src={partner} alt="" />
           </div>
         </div>
-        <div className="content">
-          <div className="content-icon"><i className="fas fa-headset"></i></div>
-          <div className="content-text">
-            <p>online support 24/7</p>
-            <p>you can call or text us at any time.</p>
+      </section>
+
+      <section className="trust">
+        <div className="trust-content">
+          <div className="content">
+            <div className="content-icon"><i className="fas fa-truck"></i></div>
+            <div className="content-text">
+              <p>FREE SHIPPING</p>
+              <p>free shipping on all products.</p>
+            </div>
+          </div>
+          <div className="content">
+            <div className="content-icon"><i className="fas fa-wallet"></i></div>
+            <div className="content-text">
+              <p>trusted provider</p>
+              <p>trusted by our customers.</p>
+            </div>
+          </div>
+          <div className="content">
+            <div className="content-icon"><i className="fas fa-headset"></i></div>
+            <div className="content-text">
+              <p>online support 24/7</p>
+              <p>you can call or text us at any time.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
       <Footer />
     </div>
 

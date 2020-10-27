@@ -66,7 +66,7 @@ return (
                                  </a>
                                 
                                 </li>
-                                <li><Link to="/"><img src={logo} alt=""/></Link></li>
+                                <li><Link to="/" onClick={refreshPage}><img src={logo} alt=""/></Link></li>
                             </ul>
                         </div>
                         <div className="header-info-list">
