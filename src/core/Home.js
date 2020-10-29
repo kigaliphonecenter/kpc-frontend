@@ -363,7 +363,7 @@ const Home = (props) => {
           <div className="countdown">Ends in: 00:00:00</div>
         </div>
         {ProductsByDay.length === 0 ?
-                <div style={{ display: 'flex', height: '110px', justifyContent: 'center', alignItems: 'center', margin: '200px' }}>
+                <div style={{ display: 'flex', height: '110px', justifyContent: 'center', alignItems: 'center' }}>
                     <h2>No Product Yet...</h2>
                 </div> :
         <section className="slider">
@@ -384,7 +384,7 @@ const Home = (props) => {
           <div className="arrivals-title"> <h3>New Arrivals</h3></div>
         </div>
         {ProductsByArrival.length === 0 ?
-                <div style={{ display: 'flex', height: '200px', justifyContent: 'center', alignItems: 'center', margin: '200px' }}>
+                <div style={{ display: 'flex', height: '200px', justifyContent: 'center', alignItems: 'center' }}>
                     <h2>No Product Yet...</h2>
                 </div> :
         <div className="new-products-container">
@@ -412,7 +412,7 @@ const Home = (props) => {
 
         {/* <div className="tab"> */}
           {ProductsBySell.length === 0 ?
-                <div style={{ display: 'flex', height: '150px', justifyContent: 'center', alignItems: 'center', margin: '200px' }}>
+                <div style={{ display: 'flex', height: '150px', justifyContent: 'center', alignItems: 'center' }}>
                     <h2>No Product Yet...</h2>
                 </div> :
         <div className="content-container">
