@@ -34,16 +34,16 @@ const Home = (props) => {
   const [Limit, setLimit] = useState(8)
   const [PostSize, setPostSize] = useState()
   const [SearchTerms, setSearchTerms] = useState("")
-  const [categories, setCategories] = useState([]);
+  const [Categories, setCategories] = useState([]);
 
   const [myFilters, setMyFilters] = useState({
     filters: { category: [], price: [] }
   });
   const [Product, setProduct] = useState([]);
   const [redirect, setRedirect] = useState(false);
-  const [productsByArrival, setProductsByArrival] = useState([]);
-  const [productsByDay, setProductsByDay] = useState([]);
-  const [productsBySell, setProductsBySell] = useState([]);
+  const [ProductsByArrival, setProductsByArrival] = useState([]);
+  const [ProductsByDay, setProductsByDay] = useState([]);
+  const [ProductsBySell, setProductsBySell] = useState([]);
   const [error, setError] = useState(false);
   // const [filteredResults, setFilteredResults] = useState([]);
   const [size, setSize] = useState(0);
@@ -148,7 +148,7 @@ const Home = (props) => {
     setSkip(skip)
   }
 
-  const renderCardByDay = productsByDay.map((product, index) => {
+  const renderCardByDay = ProductsByDay.map((product, index) => {
 
 
 
@@ -161,22 +161,122 @@ const Home = (props) => {
       console.log('added');
     };
     return <ul key={index} id="autoWidth" className="cS-hidden">
-        <Link to={`/product/${product._id}`}>
-      <li className="item-a">
-        <div className="daily-product">
-          <Link to="" className="daily-product-category">{product.brand}</Link>
-          <div className="product-info-container">
+      <Link to={`/product/${product._id}`}>
+        <li className="item-a">
+          <div className="daily-product">
+            <Link to="" className="daily-product-category">{product.brand}</Link>
+            <div className="product-info-container">
 
-            <div className="daily-product-description">
+              <div className="daily-product-description">
+                <Link to={`/product/${product._id}`}>
+                  {product.title}
+                </Link>
+              </div>
+              <div className="product-image">
+                <Link to={`/product/${product._id}`}>
+                  <ShowImage images={product.images} />
+                </Link>
+              </div>
+              <div className="price-container">
+                <div className="view-price"><span>{`Rwf ${product.price}`}</span></div>
+                {/* <button onClick={addToCart} className="add-to-cart"><i className="fas fa-cart-plus"></i></button> */}
+              </div>
+            </div>
+
+            <div className="hover-container">
+              <div className="add-to-compare">
+                <Link to="/cart" onClick={addToCart} title="Add to Cart"><i className="fas fa-cart-plus"></i>Cart</Link>
+              </div>
+              <div className="add-to-wishlist">
+                <Link to="/wishlist" onClick={addToWishlist} title="Add to WishList"><i className="far fa-heart"></i>WishList</Link>
+              </div>
+            </div>
+          </div>
+        </li>
+      </Link>
+
+
+
+    </ul>
+
+  })
+  const renderCardByArrival = ProductsByArrival.map((product, index) => {
+
+
+
+    const addToCart = () => {
+      addItem(product, setRedirect(true));
+      console.log('added');
+    };
+    const addToWishlist = () => {
+      addWishlistItem(product, setRedirect(true));
+      console.log('added');
+    };
+    return <div key={index} className="daily-product">
+      <Link to={`/product/${product._id}`}>
+
+        <Link to="" className="daily-product-category">{product.brand}</Link>
+        <div className="product-info-container">
+
+          <div className="daily-product-description">
+            <Link to={`/product/${product._id}`}>
+              {product.title}
+            </Link>
+          </div>
+          <div className="product-image">
+            <Link to={`/product/${product._id}`}>
+              <ShowImage images={product.images} />
+            </Link>
+          </div>
+          <div className="price-container">
+            <div className="view-price"><span>{`Rwf ${product.price}`}</span></div>
+            {/* <button onClick={addToCart} className="add-to-cart"><i className="fas fa-cart-plus"></i></button> */}
+          </div>
+        </div>
+
+        <div className="hover-container">
+          <div className="add-to-compare">
+            <Link to="/cart" onClick={addToCart} title="Add to Cart"><i className="fas fa-cart-plus"></i>Cart</Link>
+          </div>
+          <div className="add-to-wishlist">
+            <Link to="/wishlist" onClick={addToWishlist} title="Add to WishList"><i className="far fa-heart"></i>WishList</Link>
+          </div>
+        </div>
+      </Link>
+    </div>
+
+  })
+
+
+  const renderCardBySell = ProductsBySell.map((product, index) => {
+    const addToCart = () => {
+      addItem(product, setRedirect(true));
+      console.log('added');
+    };
+    const addToWishlist = () => {
+      addWishlistItem(product, setRedirect(true));
+      console.log('added');
+    };
+    return <div key={index} className="product-item">
+
+      <div className="product-image">
+        <Link to={`/product/${product._id}`}>
+          <ShowImage images={product.images} />
+        </Link>
+      </div>
+      <Link className="text-decoration-none" to={`/product/${product._id}`}>
+        <div className="product-description">
+          <div className="product-border">
+            <div className="product-category">
+
+              <Link to="" >{product.brand}</Link>
+            </div>
+            <div className="product-name">
               <Link to={`/product/${product._id}`}>
                 {product.title}
               </Link>
             </div>
-            <div className="product-image">
-              <Link to={`/product/${product._id}`}>
-                <ShowImage images={product.images} />
-              </Link>
-            </div>
+
             <div className="price-container">
               <div className="view-price"><span>{`Rwf ${product.price}`}</span></div>
               {/* <button onClick={addToCart} className="add-to-cart"><i className="fas fa-cart-plus"></i></button> */}
@@ -192,107 +292,7 @@ const Home = (props) => {
             </div>
           </div>
         </div>
-      </li>
-          </Link>
-
-
-
-    </ul>
-
-  })
-  const renderCardByArrival = productsByArrival.map((product, index) => {
-
-
-
-    const addToCart = () => {
-      addItem(product, setRedirect(true));
-      console.log('added');
-    };
-    const addToWishlist = () => {
-      addWishlistItem(product, setRedirect(true));
-      console.log('added');
-    };
-    return <div key={index} className="daily-product">
-<Link to={`/product/${product._id}`}>
-
-      <Link to="" className="daily-product-category">{product.brand}</Link>
-      <div className="product-info-container">
-
-        <div className="daily-product-description">
-          <Link to={`/product/${product._id}`}>
-            {product.title}
-          </Link>
-        </div>
-        <div className="product-image">
-          <Link to={`/product/${product._id}`}>
-            <ShowImage images={product.images} />
-          </Link>
-        </div>
-        <div className="price-container">
-          <div className="view-price"><span>{`Rwf ${product.price}`}</span></div>
-          {/* <button onClick={addToCart} className="add-to-cart"><i className="fas fa-cart-plus"></i></button> */}
-        </div>
-      </div>
-
-      <div className="hover-container">
-        <div className="add-to-compare">
-          <Link to="/cart" onClick={addToCart} title="Add to Cart"><i className="fas fa-cart-plus"></i>Cart</Link>
-        </div>
-        <div className="add-to-wishlist">
-          <Link to="/wishlist" onClick={addToWishlist} title="Add to WishList"><i className="far fa-heart"></i>WishList</Link>
-        </div>
-      </div>
       </Link>
-    </div>
-
-  })
-
-
-  const renderCardBySell = productsBySell.map((product, index) => {
-    const addToCart = () => {
-      addItem(product, setRedirect(true));
-      console.log('added');
-    };
-    const addToWishlist = () => {
-      addWishlistItem(product, setRedirect(true));
-      console.log('added');
-    };
-    return <div key={index} className="product-item">
-    
-      <div className="product-image">
-        <Link to={`/product/${product._id}`}>
-          <ShowImage images={product.images} />
-        </Link>
-      </div>
-<Link className="text-decoration-none" to={`/product/${product._id}`}>
-      <div className="product-description">
-        <div className="product-border">
-          <div className="product-category">
-
-            <Link to="" >{product.brand}</Link>
-          </div>
-          <div className="product-name">
-            <Link to={`/product/${product._id}`}>
-              {product.title}
-            </Link>
-          </div>
-
-          <div className="price-container">
-            <div className="view-price"><span>{`Rwf ${product.price}`}</span></div>
-            {/* <button onClick={addToCart} className="add-to-cart"><i className="fas fa-cart-plus"></i></button> */}
-          </div>
-        </div>
-
-        <div className="hover-container">
-          <div className="add-to-compare">
-            <Link to="/cart" onClick={addToCart} title="Add to Cart"><i className="fas fa-cart-plus"></i>Cart</Link>
-          </div>
-          <div className="add-to-wishlist">
-            <Link to="/wishlist" onClick={addToWishlist} title="Add to WishList"><i className="far fa-heart"></i>WishList</Link>
-          </div>
-        </div>
-      </div>
-</Link>
 
 
     </div>
@@ -306,18 +306,23 @@ const Home = (props) => {
       <Menu />
 
       <div className="main-home" >
-  <section className="categories">
-    <h2><i className="fas fa-bars"></i>Categories</h2>
-    <ul className="main-categories">
-       <List
-               categories={categories}
+        <section className="categories">
+          <h2><i className="fas fa-bars"></i>Categories</h2>
+          <ul className="main-categories">
+          {Categories.length === 0 ?
+                <div style={{ display: 'flex', height: '110px', justifyContent: 'center', alignItems: 'center' }}>
+                    <h2>Loading...</h2>
+                </div> :
+            <List
+              categories={Categories}
               handleFilters={filters =>
-              handleFilters(filters, "category")
-     }
-                                />
-   </ul>
-  <a href=""><div className="other-ad"></div></a> 
-   </section>
+                handleFilters(filters, "category")
+              }
+            />
+          }
+          </ul>
+          <a href=""><div className="other-ad"></div></a>
+        </section>
         <section className='slider-info'>
           <div className="slide-container">
 
@@ -357,9 +362,14 @@ const Home = (props) => {
           <div className="daily-deals-title"> <h3>Deals Of The Day</h3></div>
           <div className="countdown">Ends in: 00:00:00</div>
         </div>
+        {ProductsByDay.length === 0 ?
+                <div style={{ display: 'flex', height: '110px', justifyContent: 'center', alignItems: 'center', margin: '200px' }}>
+                    <h2>No Product Yet...</h2>
+                </div> :
         <section className="slider">
           {renderCardByDay}
         </section>
+        }
       </section>
       <section className="big-ad1-container">
         <div className="big-ad1">
@@ -373,14 +383,16 @@ const Home = (props) => {
 
           <div className="arrivals-title"> <h3>New Arrivals</h3></div>
         </div>
+        {ProductsByArrival.length === 0 ?
+                <div style={{ display: 'flex', height: '200px', justifyContent: 'center', alignItems: 'center', margin: '200px' }}>
+                    <h2>No Product Yet...</h2>
+                </div> :
         <div className="new-products-container">
 
           {renderCardByArrival}
 
-
-
         </div>
-
+        }
       </div>
       <section className="big-ad4">
 
@@ -399,11 +411,14 @@ const Home = (props) => {
 
 
         {/* <div className="tab"> */}
+          {ProductsBySell.length === 0 ?
+                <div style={{ display: 'flex', height: '150px', justifyContent: 'center', alignItems: 'center', margin: '200px' }}>
+                    <h2>No Product Yet...</h2>
+                </div> :
         <div className="content-container">
           {renderCardBySell}
         </div>
-        {/* </div> */}
-        {/* </div> */}
+      }
       </section>
 
 

@@ -117,7 +117,7 @@ const Product = (props, { product }) => {
           <div className="relatedProducts related-container">
 
             {relatedProduct.map((p, i) => (
-              <div key={i} className='col-lg-3 col-md-4 col-sm-6'>
+              <div key={i}>
 
                 <Card className="card" product={p} />
               </div>
