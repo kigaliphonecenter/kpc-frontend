@@ -310,8 +310,8 @@ const Home = (props) => {
           <h2><i className="fas fa-bars"></i>Categories</h2>
           <ul className="main-categories">
             {Categories.length === 0 ?
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                <div class="spinner-1"></div>
+              <div style={{ display: 'flex', textAlign: 'center' }}>
+                <div className="spinner-1"></div>
               </div> :
               <List
                 categories={Categories}
