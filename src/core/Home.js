@@ -309,17 +309,17 @@ const Home = (props) => {
         <section className="categories">
           <h2><i className="fas fa-bars"></i>Categories</h2>
           <ul className="main-categories">
-          {Categories.length === 0 ?
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <h2>Loading...</h2>
-                </div> :
-            <List
-              categories={Categories}
-              handleFilters={filters =>
-                handleFilters(filters, "category")
-              }
-            />
-          }
+            {Categories.length === 0 ?
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div class="spinner-1"></div>
+              </div> :
+              <List
+                categories={Categories}
+                handleFilters={filters =>
+                  handleFilters(filters, "category")
+                }
+              />
+            }
           </ul>
           <a href=""><div className="other-ad"></div></a>
         </section>
@@ -363,12 +363,12 @@ const Home = (props) => {
           <div className="countdown">Ends in: 00:00:00</div>
         </div>
         {ProductsByDay.length === 0 ?
-                <div style={{ padding: '20px', alignItems: 'center' }}>
-                    <h2>No Product Yet...</h2>
-                </div> :
-        <section className="slider">
-          {renderCardByDay}
-        </section>
+          <div style={{ padding: '20px', alignItems: 'center' }}>
+            <div class="spinner-1"></div>
+          </div> :
+          <section className="slider">
+            {renderCardByDay}
+          </section>
         }
       </section>
       <section className="big-ad1-container">
@@ -384,14 +384,14 @@ const Home = (props) => {
           <div className="arrivals-title"> <h3>New Arrivals</h3></div>
         </div>
         {ProductsByArrival.length === 0 ?
-                <div style={{padding: '20px', alignItems: 'center' }}>
-                    <h2>No Product Yet...</h2>
-                </div> :
-        <div className="new-products-container">
+          <div style={{ padding: '20px', alignItems: 'center' }}>
+            <div class="spinner-1"></div>
+          </div> :
+          <div className="new-products-container">
 
-          {renderCardByArrival}
+            {renderCardByArrival}
 
-        </div>
+          </div>
         }
       </div>
       <section className="big-ad4">
@@ -411,14 +411,14 @@ const Home = (props) => {
 
 
         {/* <div className="tab"> */}
-          {ProductsBySell.length === 0 ?
-                <div style={{ padding: '20px', alignItems: 'center' }}>
-                    <h2>No Product Yet...</h2>
-                </div> :
-        <div className="content-container">
-          {renderCardBySell}
-        </div>
-      }
+        {ProductsBySell.length === 0 ?
+          <div style={{ padding: '20px', alignItems: 'center' }}>
+            <div class="spinner-1"></div>
+          </div> :
+          <div className="content-container">
+            {renderCardBySell}
+          </div>
+        }
       </section>
 
 
