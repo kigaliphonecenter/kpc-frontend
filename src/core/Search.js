@@ -61,13 +61,13 @@ const Search = () => {
         //     return `Found ${results.length} products`;
         // }
         if (searched && results.length < 1) {
-            return `No products found`;
+            return `Oops! No products found;`;
         }
     };
 
     const searchedProducts = (results = []) => {
         return (
-            <div id='searchprod' className="row overlap searchedP ">
+           <div id='searchprod' className="row overlap searchedP ">
                 <div className=" search-container  ">
                     <h2 className="text-center">
                         {searchMessage(searched, results)}
