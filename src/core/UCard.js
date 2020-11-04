@@ -130,6 +130,11 @@ const Card = ({
     container.className += ' daily-deals';
   }
 
+  const scrollToTop = () => {
+    // window.location.reload(false);
+    window.scrollTo({top:0, behavior: 'smooth'});
+   
+  } 
 
   return (
 
@@ -137,7 +142,7 @@ const Card = ({
       {shouldRedirect(redirect)}
 
       <div className="product-image">
-        <Link to={`/product/${product._id}`}>
+        <Link onClick={scrollToTop} to={`/product/${product._id}`}>
           <img alt="product" src={renderCartImage(product.images)} />
         </Link>
       </div>
@@ -149,7 +154,7 @@ const Card = ({
             <Link to="" >{product.brand}</Link>
           </div>
           <div className="product-name">
-            <Link to={`/product/${product._id}`}>
+            <Link onClick={scrollToTop} to={`/product/${product._id}`}>
               {product.title}
             </Link>
           </div>

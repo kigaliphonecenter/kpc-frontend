@@ -22,6 +22,7 @@ const Product = (props, { product }) => {
   const [error, setError] = useState(false);
 
   const loadSingleProduct = productId => {
+
     read(productId).then(data => {
       if (data.error) {
         setError(data.error);
@@ -78,6 +79,13 @@ const Product = (props, { product }) => {
       return <Redirect to="/cart" />;
     }
   };
+
+  const scrollToTop = () => {
+    // window.location.reload(false);
+    window.scrollTo({top:0, behavior: 'smooth'});
+   
+  } 
+
   return (
     <div>
       <Menu />
@@ -117,9 +125,9 @@ const Product = (props, { product }) => {
           <div className="relatedProducts related-container">
 
             {relatedProduct.map((p, i) => (
-              <div key={i}>
+              <div key={i}  >
 
-                <Card className="card" product={p} />
+                <Card  className="card" product={p} />
               </div>
             ))}
 

@@ -57,7 +57,7 @@ const Footer = () => {
             <div className="insta-posts">
               <h3>Our Instagram Account</h3>
               <div className="images overflow-auto">
-                <div className="images overflow-auto">
+                <div className="image">
                 <InstagramEmbed
                   url='https://www.instagram.com/p/CGB9aPJh2EP/'
                   maxWidth={320}
