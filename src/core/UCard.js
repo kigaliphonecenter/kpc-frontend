@@ -151,7 +151,7 @@ const Card = ({
         <div className="product-border">
           <div className="product-category">
 
-            <Link to="" >{product.brand}</Link>
+            <Link to={`/product/${product._id}`} >{product.brand}</Link>
           </div>
           <div className="product-name">
             <Link onClick={scrollToTop} to={`/product/${product._id}`}>
