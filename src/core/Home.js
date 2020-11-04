@@ -147,7 +147,11 @@ const Home = (props) => {
     getProducts(variables)
     setSkip(skip)
   }
-
+ const SrollToTop = () => {
+    // window.location.reload(false);
+    window.scrollTo({top:0, behavior: 'smooth'});
+   
+  } 
   const renderCardByDay = ProductsByDay.map((product, index) => {
 
 
@@ -161,7 +165,7 @@ const Home = (props) => {
       console.log('added');
     };
     return <ul key={index} id="autoWidth" className="cS-hidden">
-      <Link to={`/product/${product._id}`}>
+      <Link to={`/product/${product._id}`} onClick={SrollToTop}>
         <li className="item-a">
           <div className="daily-product">
             <Link to="" className="daily-product-category">{product.brand}</Link>
@@ -213,7 +217,7 @@ const Home = (props) => {
       console.log('added');
     };
     return <div key={index} className="daily-product">
-      <Link to={`/product/${product._id}`}>
+      <Link to={`/product/${product._id}`} onClick={SrollToTop}>
 
         <Link to="" className="daily-product-category">{product.brand}</Link>
         <div className="product-info-container">
@@ -260,7 +264,7 @@ const Home = (props) => {
     return <div key={index} className="product-item">
 
       <div className="product-image">
-        <Link to={`/product/${product._id}`}>
+        <Link to={`/product/${product._id}`} onClick={SrollToTop}>
           <ShowImage images={product.images} />
         </Link>
       </div>
