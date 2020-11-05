@@ -95,7 +95,7 @@ const Card = ({
   };
 
 
-  const renderCartImage = (images) => {
+ const renderCartImage = (images) => {
     if (images) {
       let image = images[0]
       return `${process.env.REACT_APP_API_URL}/${image}`
@@ -113,7 +113,7 @@ const Card = ({
           <img style={{ width: '70px' }} alt="product" src={renderCartImage(product.images)} />
         </Link>
       </div>
-      <div className=" cartPage-title">
+      <div className=" cartPage-title"> 
 
         <h3 id='c' className=" text-center">{product.title}</h3>
       </div>
