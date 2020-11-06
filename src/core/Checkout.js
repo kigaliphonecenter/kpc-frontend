@@ -74,7 +74,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
             <div>{showDropIn()}</div>
         ) : (
                 <Link to="/signin">
-                    <button id='btn-s' className="bTNs">Sign in to checkout</button>
+                    <button id='btn-s' className="bTNs">Signin to checkout</button>
                 </Link>
             );
     };

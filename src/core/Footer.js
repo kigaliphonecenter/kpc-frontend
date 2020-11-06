@@ -62,7 +62,7 @@ const Footer = () => {
                 <a href='https://www.instagram.com/kigali_phones_center/' target="_blank">
                 <div className="image">
                 <img src={logo} alt=""/>
-                <button className="btn btn-info btn-block"> View Our Posts <i className="far fa-heart"></i></button>
+                <button style={{ background: '#FED700' }} className="btn btn-block"> View Our Posts <i className="far fa-heart"></i></button>
               </div>
                 </a>
               </div>
