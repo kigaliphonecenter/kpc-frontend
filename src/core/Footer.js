@@ -5,6 +5,8 @@ import img1 from '../img/1.jpg'
 import img2 from '../img/2.jpg'
 import ceo from '../img/ceo.jpg'
 import cto from '../img/cto.jpg'
+import logo from '../img/logo.jpg'
+
 
 const Footer = () => {
 
@@ -56,22 +58,13 @@ const Footer = () => {
             </div> */}
             <div className="insta-posts">
               <h3>Our Instagram Account</h3>
-              <div className="images overflow-auto">
+              <div className="card-images">
+                <a href='https://www.instagram.com/kigali_phones_center/' target="_blank">
                 <div className="image">
-                <InstagramEmbed
-                  url='https://www.instagram.com/p/CGB9aPJh2EP/'
-                  maxWidth={320}
-                  hideCaption={false}
-                  containerTagName='div'
-                  protocol=''
-                  injectScript
-                  onLoading={() => {}}
-                  onSuccess={() => {}}
-                  onAfterRender={() => {}}
-                  onFailure={() => {}}
-                />
-
+                <img src={logo} alt=""/>
+                <button className="btn btn-info btn-block"> View Our Posts <i className="far fa-heart"></i></button>
               </div>
+                </a>
               </div>
 
             </div>

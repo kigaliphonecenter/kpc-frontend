@@ -107,18 +107,34 @@ body {
   
 .what .fix{
   position: fixed;
-  top: 90%;
-  right: 12% ;
+  top: 87%;
+  right: 2% ;
   z-index: 99;
+ 
   
   a{
-  
+  width: 7rem;
+  height: 7rem;
   color:#25d366;
-  width: 10rem;
-  height: 10rem;
+  
+
+
 
   i{
-   
+    width: 7rem;
+  height: 7rem;
+   border-radius: 5rem;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+        -moz-box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+        box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+    // animation: shadow infinite 2s ease;
+    // transition: all 1s ease;
+
+
+    
+
+  padding: 1rem 1rem 1rem 1.3rem ;
     font-size: 5rem;
   }
   }
@@ -363,7 +379,7 @@ body {
   border-bottom: 0.1px solid #cad5d5;
   z-index: 6;
   padding: 0 10rem;
-  height: 8.5rem;
+  height: 10rem;
   .navigation {
     margin: 1rem 0;
     display: flex;
@@ -553,6 +569,7 @@ body {
 ////////////////*/
 
 .main-home {
+  margin-top: 0rem;
   padding: 0 10rem;
   background-color: #f5f5f5;
   position: relative;
@@ -787,18 +804,22 @@ body {
 
 //other categories section
 .other-categories {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  // justify-content: space-between;
   // width: 64.2rem;
   width: 100%;
   margin-top: 0rem;
   margin-right: 0rem !important;
      height: 20rem;
 
-  overflow: hidden;
+  // overflow: hidden;
   // background-color: #fff;
 
-
+.other-menu6,
+.other-menu7{
+display: none;
+}
   .other-menu2,
   .other-menu3,
 
@@ -807,7 +828,7 @@ body {
     // background: aqua;
     border-radius: .5rem;
     margin:1rem;
-    width: 25%;
+    // width: 50%;
     height: 95%;
     border-right: 1px solid #cad5d5;
     background-color:none;
@@ -3675,6 +3696,7 @@ body {
   margin: 10rem auto;
   width: 80rem;
 
+
   h3 {
     font-size: 3rem;
     text-align: center;
@@ -3684,15 +3706,33 @@ body {
   p {
     font-size: 1.6rem;
   }
+
+ 
 }
 
-.about-info {
+
+
+.about-info-container{
   padding: 0rem 10rem;
+  .image{
+    width: 100%;
+    height: 30rem !important;
+
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .about-info {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
   margin-bottom: 2rem;
   grid-gap: 1rem;
+  width: 100%;
+  padding: 0rem;
+
+  
 
   &-card {
     width: 100%;
@@ -3713,6 +3753,7 @@ body {
       font-size: 1.6rem;
     }
   }
+}
 }
 
 .who-we-are {
@@ -3846,8 +3887,8 @@ body {
 
 
       div{
-        width: 50rem;
-        height:50rem;
+        width: 40rem;
+        height:40rem;
 
 
         // height:40rem;
@@ -3888,12 +3929,15 @@ body {
         }
 
         .social-networks {
-
+        
+          margin: 0rem auto;
+          height: 5rem;
           margin-bottom: 2rem;
           display: flex;
-
+          justify-content: center;
           a {
             text-decoration: none;
+
           }
 
           i {
@@ -3902,6 +3946,9 @@ body {
             font-size: 2rem;
             cursor: pointer;
             margin-right: 1rem;
+            border-radius: 5rem !important;
+
+
 
           }
 
@@ -3913,6 +3960,7 @@ body {
             align-items: center;
             height: 4.5rem;
             color: white;
+
           }
 
           .fa-instagram {
@@ -4509,10 +4557,10 @@ about Ends Here
         }
 
         .images {
-          // display: grid;
-          // grid-template-columns: repeat(4, 1fr);
-          // grid-template-rows: repeat(2, 1fr);
-          // grid-gap: 1rem;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+          grid-gap: 1rem;
 
           .image {
             width: 8.5rem;
@@ -4520,51 +4568,51 @@ about Ends Here
 
             position: relative;
 
-            // &:hover {
-            //   background-color: rgba(0, 0, 0, 0.7);
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.7);
 
-            //   i {
-            //     cursor: pointer;
-            //     visibility: visible;
-            //     z-index: 9;
-            //     font-size: 3rem;
-
-
-
-            //   }
-
-
-            // }
+              i {
+                cursor: pointer;
+                visibility: visible;
+                z-index: 9;
+                font-size: 3rem;
 
 
 
-            // a {
+              }
 
-            //   &:hover {
-            //     opacity: .4;
 
-            //   }
-
-            //   img {
-            //     width: 100%;
-            //     height: 100%;
+            }
 
 
 
-            //   }
+            a {
 
-            // }
+              &:hover {
+                opacity: .4;
 
-            // i {
+              }
 
-            //   position: absolute;
-            //   color: #fff;
-            //   top: 50%;
-            //   left: 50%;
-            //   transform: translate(-50%, -50%);
-            //   font-size: 3rem;
-            //   visibility: hidden;
-            // }
+              img {
+                width: 100%;
+                height: 100%;
+
+
+
+              }
+
+            }
+
+            i {
+
+              position: absolute;
+              color: #fff;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-size: 3rem;
+              visibility: hidden;
+            }
           }
         }
       }
@@ -4590,6 +4638,8 @@ about Ends Here
           font-size: 2rem;
           cursor: pointer;
           margin-right: .5rem;
+            border-radius: 5rem !important;
+
 
         }
 
@@ -4671,7 +4721,54 @@ about Ends Here
 
 
 
+ .card-images {
+          // display: grid;
+          // grid-template-columns: repeat(4, 1fr);
+          // grid-template-rows: repeat(2, 1fr);
+          // grid-gap: 1rem;
+          
 
+            background: #fff;
+             width: 20rem;
+            height: 19.5rem;
+            padding: 1rem;
+            margin: 0 auto;
+            a{
+              text-decoration: none;
+
+          .image {
+             margin: 0 auto;
+            //  width: 22.5rem;
+            border: .1px solid #C1C3C6;
+             padding: 1rem;
+            // position: relative;
+
+            img{
+            width: 12.5rem;
+            height: 11.5rem;
+            margin: 0 1rem;
+            // position: absolute;
+            border-bottom: .1px solid #C1C3C6;
+            padding-bottom: .7rem;
+
+            }
+            button{
+              font-size: 1.2rem;
+              font-weight: 600;
+            margin-top: .7rem;
+              //  &:hover {
+              //    background
+              //  }
+              text-decoration: none;
+
+            }
+            }
+            }
+            }
+
+
+
+ 
 
 /*/////////////////
   Footer Ends Here
@@ -6087,7 +6184,7 @@ about Ends Here
   border-bottom: 0.1px solid #cad5d5;
   z-index: 6;
   padding: 0 5rem;
-  height: 8.5rem;
+  height: 10rem;
   .navigation {
     margin: 1rem 0;
     display: flex;
@@ -6418,8 +6515,7 @@ about Ends Here
   }
 
   .slide-container {
-    margin: 1rem;
-
+    margin: 0rem;
     width: 64rem;
     // min-width: 70vw;
 
@@ -6482,14 +6578,16 @@ about Ends Here
   }
 
   .other-categories {
-    display: flex;
+    // display: flex;
+    display: grid;
+  grid-template-columns: repeat(2,1fr);
     // justify-content: space-between;
     // width: 64.2rem;
     // width: 800px;
     width: 100%;
-
+margin-top: -2rem;
     height: 22.8rem;
-    overflow: hidden;
+    // overflow: hidden;
     // background-color: #fff;
 
 
@@ -6500,7 +6598,7 @@ about Ends Here
       // background: aqua;
       border-radius: .5rem;
       margin: 1rem 1rem 1rem 1rem;
-      width: 25.3%;
+      // width: 50%;
       height: 90%;
       border-right: 1px solid #cad5d5;
       background-color: orange;
@@ -8067,30 +8165,33 @@ about Ends Here
   display: none;
 }
 
-  .what .fix{
+.what .fix{
   position: fixed;
-  top: 85%;
-  right: 10% ;
+  top: 87%;
+  right: 2% ;
   z-index: 99;
-  width: 5rem;
-  height: 5rem;
-  // background-color:#25d366;
-  // border-radius: 20rem;
-
+ 
   
   a{
-
+  width: 7rem;
+  height: 7rem;
+  color:#25d366;
   
-  width: 5rem;
-  height: 5rem;
+
+
 
   i{
-  color:#25d366;
-  // color: #FED700;
-   width: 100%;
-   height: 100%;
+    width: 7rem;
+  height: 7rem;
+   border-radius: 5rem;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+        -moz-box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+        box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+    
+
+  padding: 1rem 1rem 1rem 1.3rem ;
     font-size: 5rem;
-    padding: .1rem .2rem;
   }
   }
   
@@ -8100,7 +8201,7 @@ about Ends Here
   border-bottom: 0.1px solid #cad5d5;
   z-index: 6;
   padding: 0 5rem;
-  height: 8.5rem;
+  height: 10rem;
   .navigation {
     margin: 1rem 0;
     display: flex;
@@ -8437,7 +8538,7 @@ about Ends Here
   }
 
   .slide-container {
-    margin: 1rem;
+    margin: 0rem;
     margin-bottom: 0rem;
 
     // width: 62rem;
@@ -8503,7 +8604,9 @@ about Ends Here
   }
 
   .other-categories {
-    display: flex;
+    // display: flex;
+    display: grid;
+  grid-template-columns: repeat(2,1fr);
     // justify-content: space-between;
     // width: 64.2rem;
     // width: 800px;
@@ -8522,7 +8625,7 @@ about Ends Here
       // background: aqua;
       border-radius: .5rem;
       margin: 1rem 1rem 1rem 1rem;
-      width: 33.3%;
+      // width: 50%;
       height: 90%;
       border-right: 1px solid #cad5d5;
       background-color: orange;
@@ -8543,9 +8646,9 @@ about Ends Here
 
     }
 
-    .other-menu2:last-child{
-      display: none;
-    }
+    // .other-menu2:last-child{
+    //   display: none;
+    // }
 
 
 
@@ -9517,9 +9620,16 @@ about Ends Here
 
       .member-profile {
         width: 48%;
+        
 
-        img {
+        div{
+          // width: 100%;
+        margin: 2rem auto;
+
+          img {
+            // background-position: center;
           width: 100%;
+        }
         }
 
         h5 {
@@ -9926,30 +10036,37 @@ about Ends Here
   .hover-dNone{
     display: none;
   }
-  .what .fix{
+.what .fix{
   position: fixed;
-  top: 60%;
-  right: 10% ;
+  top: 87%;
+  right: 2% ;
   z-index: 99;
-  width: 5rem;
-  height: 5rem;
-  // background-color:#25d366;
-  // border-radius: 20rem;
-
+ 
   
   a{
-
+  width: 7rem;
+  height: 7rem;
+  color:#25d366;
   
-  width: 5rem;
-  height: 5rem;
+
+
 
   i{
-  color:#25d366;
-  // color: #FED700;
-   width: 100%;
-   height: 100%;
+    width: 7rem;
+  height: 7rem;
+   border-radius: 5rem;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+        -moz-box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+        box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+    // animation: shadow infinite 2s ease;
+    // transition: all 1s ease;
+
+
+    
+
+  padding: 1rem 1rem 1rem 1.3rem ;
     font-size: 5rem;
-    padding: .1rem .2rem;
   }
   }
   
@@ -10680,25 +10797,32 @@ about Ends Here
 
   .other-categories {
     display: flex;
+    // grid-template-columns: repeat(2,1fr);
     // justify-content: space-between;
+    // justify-content: flex-start !important;
     // width: 64.2rem;
     // width: 800px;
-    width: 100%;
+    width: 100% !important;
 
     height: 25rem !important;
     overflow: hidden;
     // background-color: #fff;
 
-
+.other-menu6,
+.other-menu7{
+  margin-top: 1rem !important ;
+  display:inline-block;
+}
     .other-menu2,
-    .other-menu3,
+    .other-menu6,
+    .other-menu7,
 
     .other-menu1 {
       // background: aqua;
       border-radius: .5rem;
       margin: 1rem;
-      margin-top: 30rem;
-      width: 33.3% !important;
+      margin-top: 0rem;
+      // width: 0%;
       height: 100%;
       border-right: 1px solid #cad5d5;
       background-color: orange;
@@ -10824,8 +10948,8 @@ about Ends Here
 
   //other categories section
   .other-categories {
-    display: flex;
-    justify-content: space-between;
+    // display: flex;
+    // justify-content: space-between;
     // width: 64.2rem;
     // width: 81rem;
     width: 100%;
@@ -11648,34 +11772,49 @@ about Ends Here
     }
   }
 
-  .about-info {
-    padding: 0rem 5rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
-    margin-bottom: 2rem;
-    grid-gap: 1rem;
+.about-info-container{
+  padding: 0rem 5rem;
+  .image{
+    width: 100%;
+    height: 30rem !important;
 
-    &-card {
+    img{
       width: 100%;
-
-      .info-image {
-        img {
-          width: 100%;
-        }
-      }
-
-      h5 {
-        font-size: 1.8rem;
-        text-align: center;
-        padding: 1rem 0rem;
-      }
-
-      p {
-        font-size: 1.6rem;
-      }
+      height: 100%;
     }
   }
+  .about-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  margin-bottom: 2rem;
+  grid-gap: 1rem;
+  width: 100%;
+  padding: 0rem;
+
+  
+
+  &-card {
+    width: 100%;
+
+    .info-image {
+      img {
+        width: 100%;
+      }
+    }
+
+    h5 {
+      font-size: 1.8rem;
+      text-align: center;
+      padding: 1rem 0rem;
+    }
+
+    p {
+      font-size: 1.6rem;
+    }
+  }
+}
+}
 
   .who-we-are {
     margin: 10rem 0rem;
@@ -12393,30 +12532,37 @@ about Ends Here
   .hover-dNone{
     display: none;
   }
-  .what .fix{
+.what .fix{
   position: fixed;
-  top: 70%;
-  right: 10% ;
+  top: 87%;
+  right: 2% ;
   z-index: 99;
-  width: 5rem;
-  height: 5rem;
-  // background-color:#25d366;
-  // border-radius: 20rem;
-
+ 
   
   a{
-
+  width: 7rem;
+  height: 7rem;
+  color:#25d366;
   
-  width: 5rem;
-  height: 5rem;
+
+
 
   i{
-  color:#25d366;
-  // color: #FED700;
-   width: 100%;
-   height: 100%;
+    width: 7rem;
+  height: 7rem;
+   border-radius: 5rem;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+        -moz-box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+        box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+    // animation: shadow infinite 2s ease;
+    // transition: all 1s ease;
+
+
+    
+
+  padding: 1rem 1rem 1rem 1.3rem ;
     font-size: 5rem;
-    padding: .1rem .2rem;
   }
   }
   
@@ -13114,14 +13260,16 @@ about Ends Here
   }
 
   .other-categories {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    // justify-content: flex-start;
     // justify-content: space-between;
     // width: 64.2rem;
     // width: 800px;
     width: 100%;
 
     height: 22.8rem;
-    overflow: hidden;
+    // overflow: hidden;
     // background-color: #fff;
 
 
@@ -13133,13 +13281,13 @@ about Ends Here
       border-radius: .5rem;
       margin: 1rem;
       margin-top: 30rem;
-      width: 25.3%;
-      height: 90%;
+      // width: 50%;
+      height: 100%;
       border-right: 1px solid #cad5d5;
       background-color: orange;
       // margin-left: 0.4rem;
       transition: all 0.2s;
-      overflow: hidden;
+      // overflow: hidden;
       outline: none;
 
       img {
@@ -14075,34 +14223,49 @@ about Ends Here
     }
   }
 
-  .about-info {
-    padding: 0rem 5rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
-    margin-bottom: 2rem;
-    grid-gap: 1rem;
+.about-info-container{
+  padding: 0rem 5rem;
+  .image{
+    width: 100%;
+    height: 30rem !important;
 
-    &-card {
+    img{
       width: 100%;
-
-      .info-image {
-        img {
-          width: 100%;
-        }
-      }
-
-      h5 {
-        font-size: 1.8rem;
-        text-align: center;
-        padding: 1rem 0rem;
-      }
-
-      p {
-        font-size: 1.6rem;
-      }
+      height: 100%;
     }
   }
+  .about-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  margin-bottom: 2rem;
+  grid-gap: 1rem;
+  width: 100%;
+  padding: 0rem;
+
+  
+
+  &-card {
+    width: 100%;
+
+    .info-image {
+      img {
+        width: 100%;
+      }
+    }
+
+    h5 {
+      font-size: 1.8rem;
+      text-align: center;
+      padding: 1rem 0rem;
+    }
+
+    p {
+      font-size: 1.6rem;
+    }
+  }
+}
+}
 
   .who-we-are {
     margin: 10rem 0rem;
@@ -14825,30 +14988,37 @@ about Ends Here
     display: none;
   }
 
-    .what .fix{
+.what .fix{
   position: fixed;
-  top: 60%;
-  right: 10% ;
+  top: 87%;
+  right: 2% ;
   z-index: 99;
-  width: 5rem;
-  height: 5rem;
-  // background-color:#25d366;
-  // border-radius: 20rem;
-
+ 
   
   a{
-
+  width: 7rem;
+  height: 7rem;
+  color:#25d366;
   
-  width: 5rem;
-  height: 5rem;
+
+
 
   i{
-  color:#25d366;
-  // color: #FED700;
-   width: 100%;
-   height: 100%;
+    width: 7rem;
+  height: 7rem;
+   border-radius: 5rem;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+        -moz-box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+        box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+    // animation: shadow infinite 2s ease;
+    // transition: all 1s ease;
+
+
+    
+
+  padding: 1rem 1rem 1rem 1.3rem ;
     font-size: 5rem;
-    padding: .1rem .2rem;
   }
   }
   
@@ -16526,36 +16696,49 @@ about Ends Here
     }
   }
 
-  .about-info {
-    padding: 0rem 5rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    margin-bottom: 2rem;
-    grid-gap: 2rem;
+.about-info-container{
+  padding: 0rem 5rem;
+  .image{
+    width: 100%;
+    height: 30rem !important;
 
-    &-card {
+    img{
       width: 100%;
-
-
-
-      .info-image {
-        img {
-          width: 100%;
-        }
-      }
-
-      h5 {
-        font-size: 1.8rem;
-        text-align: center;
-        padding: 1rem 0rem;
-      }
-
-      p {
-        font-size: 1.6rem;
-      }
+      height: 100%;
     }
   }
+  .about-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  margin-bottom: 2rem;
+  grid-gap: 1rem;
+  width: 100%;
+  padding: 0rem;
+
+  
+
+  &-card {
+    width: 100%;
+
+    .info-image {
+      img {
+        width: 100%;
+      }
+    }
+
+    h5 {
+      font-size: 1.8rem;
+      text-align: center;
+      padding: 1rem 0rem;
+    }
+
+    p {
+      font-size: 1.6rem;
+    }
+  }
+}
+}
 
   .who-we-are {
     margin: 10rem 0rem;
@@ -20620,20 +20803,36 @@ about Ends Here
     display: none;
   }
 
-    .what .fix{
+.what .fix{
   position: fixed;
-  top: 50%;
-  right: 10% ;
+  top: 87%;
+  right: 2% ;
   z-index: 99;
+ 
   
   a{
-  
+  width: 7rem;
+  height: 7rem;
   color:#25d366;
-  width: 10rem;
-  height: 10rem;
+  
+
+
 
   i{
-   
+    width: 7rem;
+  height: 7rem;
+   border-radius: 5rem;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+        -moz-box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+        box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+    // animation: shadow infinite 2s ease;
+    // transition: all 1s ease;
+
+
+    
+
+  padding: 1rem 1rem 1rem 1.3rem ;
     font-size: 5rem;
   }
   }
@@ -21385,9 +21584,13 @@ about Ends Here
       // }
 
       .slide-container {
-        margin: 1rem;
+        
+        margin: 0rem;
         margin-bottom: 0rem;
         width: 100%;
+        margin-bottom: 2rem;
+        padding-right: 0rem;
+        padding-left: 0rem;
         // width: 100%;
 
         height: 19.4rem;
@@ -21460,46 +21663,43 @@ about Ends Here
     display: none;
   }
 
-  .other-categories {
-    display: flex;
-    // grid-template-columns: repeat(2,1fr);
-    // justify-content: space-around;
+   .other-categories {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    // justify-content: space-between;
+    // justify-content: flex-start !important;
     // width: 64.2rem;
-    width:100%;
-    // flex-direction: column;
-    // margin: 0rem auto;
-    margin-top: .5rem;
-    grid-gap: .5rem;
+    // width: 800px;
+    grid-gap: 0rem 1rem;
+    clear: both;
+    width: 100% !important;
 
-
-    height: 25rem;
-    overflow: hidden;
+    height: 24rem !important;
+    // overflow: hidden;
     // background-color: #fff;
 
-    .other-menu3 {
-      margin-top: 0rem;
-      display: none;
-    }
-
+.other-menu6,
+.other-menu7{
+  // margin-top: 1rem !important ;
+  display:none;
+}
     .other-menu2,
-    .other-menu2:last-child {
-      visibility: visible;
-    }
-
-    .other-menu2,
-    .other-menu3,
+    .other-menu6,
+    .other-menu7,
 
     .other-menu1 {
       // background: aqua;
       border-radius: .5rem;
-      width: 50% !important;
-      // width: 90%; 
+      margin: 1rem;
+      margin-top: 2rem;
+      // width: 50%;
+      width: 100%;
       height: 100%;
       border-right: 1px solid #cad5d5;
-      // background-color: orange;
+      background-color: orange;
       // margin-left: 0.4rem;
       transition: all 0.2s;
-      overflow: hidden;
+      // overflow: hidden;
       outline: none;
 
       img {
@@ -22602,36 +22802,49 @@ about Ends Here
     }
   }
 
-  .about-info {
-    padding: 0rem 1rem;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    margin-bottom: 2rem;
-    grid-gap: 2rem;
+ .about-info-container{
+  padding: 0rem 2rem;
+  .image{
+    width: 100%;
+    height: 30rem !important;
 
-    &-card {
+    img{
       width: 100%;
-
-
-
-      .info-image {
-        img {
-          width: 100%;
-        }
-      }
-
-      h5 {
-        font-size: 1.8rem;
-        text-align: center;
-        padding: 1rem 0rem;
-      }
-
-      p {
-        font-size: 1.6rem;
-      }
+      height: 100%;
     }
   }
+  .about-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3,1fr);
+  margin-bottom: 2rem;
+  grid-gap: 1rem;
+  width: 100%;
+  padding: 0rem;
+
+  
+
+  &-card {
+    width: 100%;
+
+    .info-image {
+      img {
+        width: 100%;
+      }
+    }
+
+    h5 {
+      font-size: 1.8rem;
+      text-align: center;
+      padding: 1rem 0rem;
+    }
+
+    p {
+      font-size: 1.6rem;
+    }
+  }
+}
+}
 
   .who-we-are {
     margin: 2rem 0rem;
@@ -23604,21 +23817,37 @@ about Ends Here
   .hover-dNone{
     display: none;
   }
-  .what .fix{
+.what .fix{
   position: fixed;
-  top: 50%;
-  right: 10% ;
+  top: 87%;
+  right: 2% ;
   z-index: 99;
+ 
   
   a{
-  
+  width: 5rem;
+  height: 5rem;
   color:#25d366;
-  width: 10rem;
-  height: 10rem;
+  
+
+
 
   i{
-   
-    font-size: 5rem;
+    width: 5rem;
+  height: 5rem;
+   border-radius: 5rem;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+        -moz-box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+        box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+    // animation: shadow infinite 2s ease;
+    // transition: all 1s ease;
+
+
+    
+
+  padding: 1rem 1rem 1rem 1.3rem ;
+    font-size: 3rem;
   }
   }
   
@@ -23941,12 +24170,14 @@ about Ends Here
     //   }
 
     section.slider-info {
-
+      width: 100%;
+      margin-right: 0rem !important;
+      margin-bottom: 2rem;
       .slide-container {
-        margin: 1rem 0rem 0rem 1rem;
-        max-width: 34.5rem;
-        // width: 100%;
-
+        margin: 0rem;
+        // max-width: 34.5rem;
+        width: 100%;
+        margin-right: 0rem !important;
         height: 19.4rem;
         position: relative;
         overflow: hidden;
@@ -24005,6 +24236,76 @@ about Ends Here
         outline: none;
       }
     }
+  }
+
+    .other-categories {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    // justify-content: space-between;
+    // justify-content: flex-start !important;
+    // width: 64.2rem;
+    // width: 800px;
+    grid-gap: 0rem 1rem;
+    clear: both;
+    width: 100% !important;
+
+    height: 24rem !important;
+    // overflow: hidden;
+    // background-color: #fff;
+
+.other-menu6,
+.other-menu7{
+  // margin-top: 1rem !important ;
+  display:none;
+}
+    .other-menu2,
+    .other-menu6,
+    .other-menu7,
+
+    .other-menu1 {
+      // background: aqua;
+      border-radius: .5rem;
+      margin: 1rem;
+      margin-top: 3rem;
+      // width: 50%;
+      width: 100%;
+      height: 100%;
+      border-right: 1px solid #cad5d5;
+      background-color: orange;
+      // margin-left: 0.4rem;
+      transition: all 0.2s;
+      // overflow: hidden;
+      outline: none;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+        outline: none;
+      }
+
+    }
+
+
+
+    // .other-menu1{
+    //   background-image: url('./img/phone1.jpg');
+    // }
+    // .other-menu2{
+    //   background-image: url('./img/phone2.jpg');
+    // }
+    // .other-menu3{
+    //   background-image: url('./img/phone1.jpg');
+    // }
+    // .other-menu4{
+    //   background-image: url('./img/phone2.jpg');
+    // }
+
+
+
   }
 
   .daily-deals {
@@ -25871,21 +26172,37 @@ about Ends Here
   .hover-dNone{
     display: none;
   }
-    .what .fix{
+.what .fix{
   position: fixed;
-  top: 50%;
-  right: 10% ;
+  top: 87%;
+  right: 2% ;
   z-index: 99;
+ 
   
   a{
-  
+  width: 5rem;
+  height: 5rem;
   color:#25d366;
-  width: 10rem;
-  height: 10rem;
+  
+
+
 
   i{
-   
-    font-size: 5rem;
+    width: 5rem;
+  height: 5rem;
+   border-radius: 5rem;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+        -moz-box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+        box-shadow: 0px 1px 2px 2px rgba(202, 213, 213, 1);
+    // animation: shadow infinite 2s ease;
+    // transition: all 1s ease;
+
+
+    
+
+  padding: 1rem 1rem 1rem 1.3rem ;
+    font-size: 3rem;
   }
   }
   
@@ -26060,6 +26377,7 @@ about Ends Here
 
   .main-home {
     padding: 0rem 1rem 1rem 1rem;
+    margin: 0rem;
     background-color: #f5f5f5;
     position: relative;
     clear: both;
@@ -26210,12 +26528,12 @@ about Ends Here
     //   }
 
     section.slider-info {
-      width: 67rem !important;
+      width: 100% !important;
 
       .slide-container {
         margin: 1rem 0rem 0rem 1rem;
         max-width: 29rem;
-        // width: 100%;
+        width: 100%;
 
         height: 15.4rem;
         position: relative;
@@ -26306,11 +26624,12 @@ about Ends Here
     .other-menu1 {
       // background: aqua;
       border-radius: .5rem;
+      margin-top: 1rem;
       // width: 25.3%;
       width: 100% !important;
       height: 22rem;
       border-right: 1px solid #cad5d5;
-      background-color: orange;
+      background-color: none;
       // margin-left: 0.4rem;
       transition: all 0.2s;
       overflow: hidden;
@@ -28194,4 +28513,6 @@ about Ends Here
 }
 }    
 }
+
+
 

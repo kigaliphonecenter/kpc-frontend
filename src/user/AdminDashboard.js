@@ -32,7 +32,7 @@ const AdminDashboard = () => {
                     </li>
                     <li className="list-group-item">
                         <Link className="nav-link text-warning" to="/admin/products">
-                            Manage Products
+                            Manage Products & Category
                         </Link>
                     </li>
                     {/* <li className="list-group-item">

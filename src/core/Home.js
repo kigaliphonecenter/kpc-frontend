@@ -147,11 +147,13 @@ const Home = (props) => {
     getProducts(variables)
     setSkip(skip)
   }
- const SrollToTop = () => {
+
+  const SrollToTop = () => {
     // window.location.reload(false);
     window.scrollTo({top:0, behavior: 'smooth'});
    
   } 
+
   const renderCardByDay = ProductsByDay.map((product, index) => {
 
 
@@ -314,8 +316,8 @@ const Home = (props) => {
           <h2><i className="fas fa-bars"></i>Categories</h2>
           <ul className="main-categories">
             {Categories.length === 0 ?
-              <div style={{ display: 'flex', textAlign: 'center' }}>
-                <div className="spinner-1"></div>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div class="spinner-1"></div>
               </div> :
               <List
                 categories={Categories}
@@ -343,11 +345,11 @@ const Home = (props) => {
               <a href="https://www.youtube.com/"><img src={img2} alt="" /></a>
 
             </div>
-            <div className="other-menu3">
+            <div className="other-menu6">
               <a href="https://www.amazon.com/"><img src={img1} alt="" /></a>
 
             </div>
-            <div className="other-menu2">
+            <div className="other-menu7">
               <a href="https://www.youtube.com/"><img src={img2} alt="" /></a>
 
             </div>

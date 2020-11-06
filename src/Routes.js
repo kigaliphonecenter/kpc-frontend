@@ -25,6 +25,7 @@ import Orders from './admin/Orders';
 import Profile from './user/Profile';
 import ManageProducts from './admin/ManageProducts';
 import UpdateProduct from './admin/UpdateProduct';
+import UpdateCategory from './admin/UpdateCategory';
 // import UpdateCategory from './admin/updateCategory';
 
 const Routes = () => {
@@ -52,6 +53,7 @@ const Routes = () => {
         <PrivateRoute path="/profile/:userId" exact component={Profile} />
         <PrivateRoute path="/admin/products" exact component={ManageProducts} />
         <AdminRoute path="/admin/product/update/:productId" exact component={UpdateProduct} />
+        <AdminRoute path="/admin/category/update/:category" exact component={UpdateCategory} />
         <Route path="/faq" exact component={FAQ} />
         <Route path="/about" exact component={About} />
         <Route path="/contact" exact component={Contact} />
