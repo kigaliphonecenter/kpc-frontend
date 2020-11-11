@@ -100,7 +100,7 @@ const Orders = () => {
     return (
         <Layout>
 
-            <div className="col-md-10 col-sm-10 offset-md-1">
+            <div className="col-md-10 col-sm-10  m-auto">
                 {showOrdersLength()}
                 <table id="myTable" className="table table-striped table-bordered">
                     <thead >
