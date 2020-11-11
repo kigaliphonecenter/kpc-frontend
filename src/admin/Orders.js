@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../core/Layout";
+import Menu from "../core/Menu";
+import Footer from "../core/Footer";
 import { isAuthenticated } from "../auth";
 
 import {
@@ -98,9 +99,10 @@ const Orders = () => {
 
 
     return (
-        <Layout>
+        <div>
+            <Menu />
 
-            <div className="col-md-10 col-sm-10  m-auto">
+            <div className="col-md-11 col-sm-11 orders m-auto">
                 {showOrdersLength()}
                 <table id="myTable" className="table table-striped table-bordered">
                     <thead >
@@ -158,10 +160,9 @@ const Orders = () => {
 
                 </table>
             </div>
-            <div>
+            <Footer />
+        </div>
 
-            </div>
-        </Layout>
     );
 
 
