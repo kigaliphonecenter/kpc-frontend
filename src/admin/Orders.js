@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
-import { Link } from "react-router-dom";
+
 import {
     listOrders,
     getStatusValues,
@@ -10,6 +10,7 @@ import {
 import moment from "moment";
 
 const Orders = () => {
+
     const [orders, setOrders] = useState([]);
     const [statusValues, setStatusValues] = useState([]);
 
@@ -43,7 +44,7 @@ const Orders = () => {
     const showOrdersLength = () => {
         if (orders.length > 0) {
             return (
-                <h1 className="text-warning display-2">
+                <h1 style={{ color: '#FED700', fontSize: '35px', fontWeight: '400' }} className="p-3 text-center">
                     Total orders: {orders.length}
                 </h1>
             );
@@ -53,17 +54,14 @@ const Orders = () => {
     };
 
     const showInput = (key, value) => (
-        <div className="input-group mb-2 mr-sm-2 w-50">
-            <div className="input-group-prepend">
-                <div className="input-group-text">{key}</div>
-            </div>
-            <input
-                type="text"
-                value={value}
-                className="form-control"
-                readOnly
-            />
-        </div>
+
+        <span className="">
+            {key} <br />
+            <strong className='text-center'>{value}</strong>
+
+        </span>
+
+
     );
 
     const handleStatusChange = (e, orderId) => {
@@ -82,9 +80,10 @@ const Orders = () => {
 
     const showStatus = o => (
         <div className="form-group">
-            <h3 className="mark mb-4">Status: {o.status}</h3>
+            <h3 className="h5">{o.status}</h3>
             <select
                 className="form-control"
+                style={{ width: '100px' }}
                 onChange={e => handleStatusChange(e, o._id)}
             >
                 <option>Update Status</option>
@@ -99,96 +98,68 @@ const Orders = () => {
 
 
     return (
-        <Layout
-            title="Orders"
-            description={`Welcome ${user.name
-                }, you can manage all the orders here`}
-            className="container-fluid"
-        >
-            <div  className="row">
-                <div  className="col-md-8 offset-md-2">
-                    {showOrdersLength()}
-                    {orders.map((o, oIndex) => {
-                        return (
-                            <div
-                                className="mt-5"
-                                key={oIndex}
-                                style={{ border: ".5px solid #fed700" , padding: "2rem"}}
-                                // style={{ borderBottom: "5px solid #fed700" }}
-                            >
-                                {/* <h2 className="mb-5">
-                                    <span className="bg-waring">
-                                        Order ID: {o._id}
-                                    </span>
-                                </h2> */}
+        <Layout>
 
-                                <ul className="listGroup mb-2">
-                                    <li className="list-group-item">
-                                        {showStatus(o)}
-                                    </li>
-                                    {/* <li className="list-group-item">
-                                        Transaction ID: {o.transaction_id}
-                                    </li> */}
-                                    <li className="list-items">
-                                      -  Amount :   <span>Rwf {o.amount}</span> 
-                                    </li>
-                                    <li className="list-items">
-                                      -  Ordered by :  <span>{o.user.name}</span>
-                                    </li>
-                                    <li className="list-items">
-                                      -  Ordered on : {" "}
-                                       <span> {moment(o.createdAt).fromNow()}</span>
-                                    </li>
-                                    <li className="list-items">
-                                      -  Delivery District :  <span>{o.district}</span>
-                                    </li>
-                                    <li className="list-items">
-                                      -  Delivery Phone Color :  <span>{o.color}</span>
-                                    </li>
-                                    <li className="list-items">
-                                      -  Delivery Sector :  <span>{o.sector}</span>
-                                    </li>
-                                    <li className="list-items">
-                                      -  Delivery Cell :  <span>{o.cell}</span>
-                                    </li>
-                                    <li className="list-items">
-                                      -  Delivery Village :  <span>{o.village}</span>
-                                    </li>
-                                    <li className="list-items">
-                                       - Delivery Phone :  (+250) <span>{o.phone}</span>
-                                    </li>
-                                    <li className="list-items">
-                                       - Delivery address :  <span>{o.address}</span>
-                                    </li>
-                                </ul>
+            <div className="col-md-12 col-sm-12  offset-md-0">
+                {showOrdersLength()}
+                <table id="myTable" className="table table-striped table-bordered">
+                    <thead >
+                        <tr>
+                            <th scope="col">Status</th>
+                            <th scope="col">Amount (Rwf)</th>
+                            <th scope="col">Ordered by</th>
+                            <th scope="col">Ordered on</th>
+                            <th scope="col">Delivery Phone </th>
+                            <th scope="col">Delivery District</th>
+                            <th scope="col">Delivery Phone color</th>
+                            <th scope="col">Delivery Sector</th>
+                            <th scope="col">Delivery Cell</th>
+                            <th scope="col">Delivery Village</th>
+                            <th scope="col">Delivery Address</th>
+                            <th scope="col">Ordered Product</th>
 
-                                <h3 className="mt-4 mb-4 font-italic">
-                                    Total products in the order:{" "}
-                                    {o.products.length}
-                                </h3>
+                        </tr>
+                    </thead>
 
+
+
+                    <tbody >
+                        {orders.map((o, oIndex) => {
+                            return <tr key={oIndex}>
+                                <td>{showStatus(o)}</td>
+                                <td>{o.amount}</td>
+                                <td>{o.user.name}</td>
+                                <td> {moment(o.createdAt).fromNow()}</td>
+                                <td>{o.phone}</td>
+                                <td>{o.district}</td>
+                                <td>{o.color}</td>
+                                <td>{o.sector}</td>
+                                <td>{o.cell}</td>
+                                <td>{o.village}</td>
+                                <td>{o.village}</td>
                                 {o.products.map((p, pIndex) => (
-                                    <div
-                                        className="mb-4"
-                                        key={pIndex}
-                                        style={{
-                                            
-                                            display: "flex",
-                                            padding: "20px",
-                                            border: "1px solid indigo"
-                                        }}
-                                    >
+                                    <tr style={{ background: 'none' }} key={pIndex}>
 
-                                        {showInput("Product Title", p.title)}
-                                        {showInput("Product Price [Rwf]", p.price)}
-                                        {showInput("Product Total", p.count)}
-                                        {showInput("Product Id", p._id)}
-                                    </div>
+
+
+
+                                        <td>{showInput("Title:", p.title)}</td>
+                                        <td>{showInput("Price [Rwf]:", p.price)}</td>
+                                        <td>{showInput("Total:", p.count)}</td>
+
+
+
+                                    </tr>
                                 ))}
-                            </div>
-                        );
-                    })}
-                </div>
+                            </tr>
+
+                        })}
+                    </tbody>
+
+                </table>
+            </div>
+            <div>
+
             </div>
         </Layout>
     );

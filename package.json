@@ -13,6 +13,7 @@
     "braintree-web-drop-in-react": "^1.1.0",
     "classnames": "^2.2.6",
     "dotenv": "^8.2.0",
+    "jquery": "^3.5.1",
     "mdbreact": "^4.25.2",
     "moment": "^2.24.0",
     "node-sass": "^4.14.1",

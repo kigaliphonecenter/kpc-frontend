@@ -4,6 +4,7 @@ import { emptyCart } from './cartHelpers';
 import Card from './Card';
 import { isAuthenticated } from '../auth';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Checkout = ({ products, setRun = f => f, run = undefined }) => {
     const [data, setData] = useState({
@@ -102,7 +103,12 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
             village: deliveryVillage,
             address: deliveryAddress
         };
-
+        if (!deliveryColor || !deliveryDistrict || !deliverySector || !deliveryCell || !deliveryVillage || !deliveryAddress) {
+            // return alert('All fields are required')
+            return toast.error('Please fill all fields');
+        } else {
+            toast.success('Thanks! Your Order Was Successful!')
+        };
         createOrder(userId, token, createOrderData)
             .then(response => {
                 emptyCart(() => {
@@ -123,6 +129,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
 
     const showDropIn = () => (
         <div onBlur={() => setData({ ...data, error: '' })}>
+            <ToastContainer />
             {data.clientToken !== null && products.length > 0 ? (
                 <form className="deliveryInputs ">
 
@@ -160,7 +167,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
                             className="form-control"
                             value={data.address}
                             placeholder="Type your delivery address here..."
-                        
+
                         />
                     </div>
 
@@ -173,11 +180,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
         </div>
     );
 
-    const showError = error => (
-        <div className="alert alert-danger" style={{ display: error ? '' : 'none' }}>
-            {error}
-        </div>
-    );
+
 
     const showSuccess = success => (
         <div className="alert alert-info" style={{ display: success ? '' : 'none' }}>
@@ -192,7 +195,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
             <h2>Total: Rwf {getTotal()}</h2>
             {showLoading(data.loading)}
             {showSuccess(data.success)}
-            {showError(data.error)}
+
             {showCheckout()}
         </div>
     );
