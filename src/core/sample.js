@@ -143,15 +143,14 @@ const Orders = () => {
                                         <tr style={{ background: 'none' }} key={pIndex}>
 
 
-                                            <div className='pooo'>
 
 
                                                 <td>{showInput("Title:", p.title)}</td>
                                                 <td>{showInput("Price [Rwf]:", p.price)}</td>
                                                 <td>{showInput("Total:", p.count)}</td>
-                                            </div>
+                                            
 
-                                            <br />
+                                            
                                         </tr>
                                     ))}
                                 </tr>
