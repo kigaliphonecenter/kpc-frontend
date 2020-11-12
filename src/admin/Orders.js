@@ -105,7 +105,7 @@ const Orders = () => {
 
     const data = orders.map(o => (
         [showStatus(o), ` ${o.amount}`, ` ${o.user.name}`,
-        ` ${moment(o.createdAt).fromNow()}`, ` ${o.phone}`, ` ${o.district}`,
+        ` ${moment(o.createdAt).fromNow()}`, `+250 ${o.phone}`, ` ${o.district}`,
         ` ${o.color}`, ` ${o.sector}`,
         ` ${o.cell}`, ` ${o.village}`, ` ${o.address}`, `${o.products.map((p) =>
             [
