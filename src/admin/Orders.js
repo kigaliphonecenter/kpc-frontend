@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import MUIDataTable from "mui-datatables";
 import Menu from "../core/Menu";
 import Footer from "../core/Footer";
 import { isAuthenticated } from "../auth";
@@ -40,6 +41,7 @@ const Orders = () => {
     useEffect(() => {
         loadOrders();
         loadStatusValues();
+
     }, []);
 
     const showOrdersLength = () => {
@@ -80,7 +82,7 @@ const Orders = () => {
     };
 
     const showStatus = o => (
-        <div className="form-group">
+        <span className="form-group">
             <h3 className="h5">{o.status}</h3>
             <select
                 className="form-control"
@@ -94,71 +96,41 @@ const Orders = () => {
                     </option>
                 ))}
             </select>
-        </div>
+        </span>
     );
+    const columns = ["Status", "Amount (Rwf)", "Ordered by",
+        "Ordered On", "Delivery Phone Number", "Delivery District", "Delivery Phone Color", "Delivery Sector",
+        "Delivery Cell", "Delivery Village", "Delivery Address"];
 
+
+    const data = orders.map(o => (
+        [showStatus(o), ` ${o.amount}`, ` ${o.user.name}`,
+        ` ${moment(o.createdAt).fromNow()}`, ` ${o.phone}`, ` ${o.district}`,
+        ` ${o.color}`, ` ${o.sector}`,
+        ` ${o.cell}`, ` ${o.village}`, ` ${o.address}`, `${o.products.map((p) =>
+            [
+
+            ]
+
+
+        )}`]
+    ));
+    const options = {
+        filterType: 'checkbox',
+    };
 
     return (
         <div>
             <Menu />
 
-            <div className="col-md-11 col-sm-11 orders m-auto">
+            <div className=" orders m-auto">
                 {showOrdersLength()}
-                <table id="myTable" className="table table-striped table-bordered">
-                    <thead >
-                        <tr>
-                            <th scope="col">Status</th>
-                            <th scope="col">Amount (Rwf)</th>
-                            <th scope="col">Ordered by</th>
-                            <th scope="col">Ordered on</th>
-                            <th scope="col">Delivery Phone </th>
-                            <th scope="col">Delivery District</th>
-                            <th scope="col">Delivery Phone color</th>
-                            <th scope="col">Delivery Sector</th>
-                            <th scope="col">Delivery Cell</th>
-                            <th scope="col">Delivery Village</th>
-                            <th scope="col">Delivery Address</th>
-                            <th scope="col">Ordered Product</th>
-
-                        </tr>
-                    </thead>
-
-
-
-                    <tbody >
-                        {orders.map((o, oIndex) => {
-                            return <tr key={oIndex}>
-                                <td>{showStatus(o)}</td>
-                                <td>{o.amount}</td>
-                                <td>{o.user.name}</td>
-                                <td> {moment(o.createdAt).fromNow()}</td>
-                                <td>{o.phone}</td>
-                                <td>{o.district}</td>
-                                <td>{o.color}</td>
-                                <td>{o.sector}</td>
-                                <td>{o.cell}</td>
-                                <td>{o.village}</td>
-                                <td>{o.village}</td>
-                                {o.products.map((p, pIndex) => (
-                                    <tr style={{ background: 'none' }} key={pIndex}>
-
-
-
-
-                                        <td>{showInput("Title:", p.title)}</td>
-                                        <td>{showInput("Price [Rwf]:", p.price)}</td>
-                                        <td>{showInput("Total:", p.count)}</td>
-
-
-
-                                    </tr>
-                                ))}
-                            </tr>
-
-                        })}
-                    </tbody>
-
-                </table>
+                <MUIDataTable
+                    title={"Orders List"}
+                    data={data}
+                    columns={columns}
+                    options={options}
+                />
             </div>
             <Footer />
         </div>
