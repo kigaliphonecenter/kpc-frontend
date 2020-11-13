@@ -33,7 +33,6 @@ const Card = ({
     // console.log('added');
     addItem(product, setRedirect(true));
   };
-
   const shouldRedirect = redirect => {
     if (redirect) {
       return <Redirect to="/wishlist" />;
@@ -42,7 +41,7 @@ const Card = ({
   const showAddToCart = showAddToCartButton => {
     return (
       showAddToCartButton && (
-        <button onClick={addToCart} id='bt' className="btn btn-outline-secondary mt-2 mb-2">Add To Cart</button>
+        <button onClick={addToCart} id='bt' className="btn btn-outline-secondary mt-2 mb-2">Add to cart</button>
       )
     );
   };
@@ -69,7 +68,7 @@ const Card = ({
     return (
       cartUpdate && (
         <div>
-          <div className="wishPage-input-group">
+          <div className="cartPage-input-group">
 
             <input type="number" className="form-control" value={count} onChange={handleChange(product._id)} />
           </div>
@@ -77,6 +76,7 @@ const Card = ({
       )
     );
   };
+
 
   const showRemoveButton = showRemoveProductButton => {
     return (
@@ -106,8 +106,7 @@ const Card = ({
   return (
 
     <div id='bt' className=" wishPage">
-      <div className="text-center wishPage-image">
-        {shouldRedirect(redirect)}
+      <div className="text-center wishPage-image">        {shouldRedirect(redirect)}
         {/* <ShowImage item={product} url='product' /> */}
         <Link to={`/product/${product._id}`} className="mr-2">
           <img style={{ width: '70px' }} alt="product" src={renderWishlistImage(product.images)} />
@@ -123,22 +122,12 @@ const Card = ({
 
         <div className='wishPage-btnAdd '>
 
-          {/* {showViewButton(showViewProductButton)} */}
+
           {showAddToCart(showAddToCartButton)}
           <span className='wishPage-btns-remov'>
             {showRemoveButton(showRemoveProductButton)}
           </span>
-          {/* <div className=' wishPage-buttons-btns'>
 
-            <div className='wishPage-btns-update'>
-
-              {showCartUpdateOptions(cartUpdate)}
-            </div>
-            <div className='wishPage-btns-remov'>
-
-              {showRemoveButton(showRemoveProductButton)}
-            </div>
-          </div> */}
         </div>
       </div>
 

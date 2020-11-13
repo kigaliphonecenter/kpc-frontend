@@ -89,7 +89,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
     let deliveryVillage = data.village
 
     const buy = () => {
-        setData({ loading: true });
+        setData({ loading: false });
 
 
         const createOrderData = {
@@ -193,7 +193,6 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
     return (
         <div>
             <h2>Total: Rwf {getTotal()}</h2>
-            {showLoading(data.loading)}
             {showSuccess(data.success)}
 
             {showCheckout()}
