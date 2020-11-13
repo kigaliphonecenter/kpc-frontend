@@ -88,7 +88,8 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
     let deliveryCell = data.cell
     let deliveryVillage = data.village
 
-    const buy = () => {
+    const buy = (e) => {
+        e.preventDefault();
         setData({ loading: false });
 
 

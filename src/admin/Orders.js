@@ -98,7 +98,7 @@ const Orders = () => {
             </select>
         </span>
     );
-    const upStatus = o => (o.status)
+
 
     const Product = o => {
         return (o.products.map((p) =>
@@ -116,7 +116,7 @@ const Orders = () => {
 
 
     const data = orders.map(o => (
-        [showStatus(o), upStatus(o), `${o.amount}`, `${o.user.name}`,
+        [showStatus(o), `${o.status}`, `${o.amount}`, `${o.user.name}`,
         `${moment(o.createdAt).fromNow()}`, `+250 ${o.phone}`, `${o.district}`,
         `${o.color}`, ` ${o.sector}`,
         ` ${o.cell}`, ` ${o.village}`, ` ${o.address}`, Product(o)]

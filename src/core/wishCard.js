@@ -41,7 +41,13 @@ const Card = ({
   const showAddToCart = showAddToCartButton => {
     return (
       showAddToCartButton && (
-        <button onClick={addToCart} id='bt' className="btn btn-outline-secondary mt-2 mb-2">Add to cart</button>
+        <Link to='/cart' >
+          <button onClick={addToCart} id='bt' className="btn btn-outline-secondary mt-2 mb-2">
+          
+          Add to cart
+          
+          </button>
+        </Link>
       )
     );
   };
@@ -124,6 +130,7 @@ const Card = ({
 
 
           {showAddToCart(showAddToCartButton)}
+
           <span className='wishPage-btns-remov'>
             {showRemoveButton(showRemoveProductButton)}
           </span>
