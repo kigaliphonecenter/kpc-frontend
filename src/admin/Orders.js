@@ -108,10 +108,6 @@ const Orders = () => {
                 <span >{showInput("Total: ", p.count)}</span> <br />
 
             </div>
-
-
-
-
         ))
     }
     const columns = ["Update Status", "Status", "Amount (Rwf)", "Ordered by", "Ordered On",
@@ -125,6 +121,8 @@ const Orders = () => {
         `${o.color}`, ` ${o.sector}`,
         ` ${o.cell}`, ` ${o.village}`, ` ${o.address}`, Product(o)]
     ));
+
+
     const options = {
         filterType: 'checkbox',
     };
