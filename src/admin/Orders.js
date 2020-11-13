@@ -83,7 +83,7 @@ const Orders = () => {
 
     const showStatus = o => (
         <span className="form-group">
-            <h3 className="h5">{o.status}</h3>
+
             <select
                 className="form-control"
                 style={{ width: '100px' }}
@@ -98,13 +98,14 @@ const Orders = () => {
             </select>
         </span>
     );
+    const upStatus = o => (o.status)
 
     const Product = o => {
         return (o.products.map((p) =>
             <div className="pValue" >
-                <span>{showInput("Title:", p.title)}</span> <br />
-                <span>{showInput("Price [Rwf]:", p.price)}</span> <br />
-                <span >{showInput("Total:", p.count)}</span> <br />
+                <span>{showInput("Title: ", p.title)}</span> <br />
+                <span>{showInput("Price [Rwf]: ", p.price)}</span> <br />
+                <span >{showInput("Total: ", p.count)}</span> <br />
 
             </div>
 
@@ -113,14 +114,13 @@ const Orders = () => {
 
         ))
     }
-    const columns = ["Status", "Amount (Rwf)", "Ordered by",
-        "Ordered On", "Delivery Phone Number", "Delivery District", "Delivery Phone Color",
-        "Delivery Sector",
-        "Delivery Cell", "Delivery Village", "Delivery Address", "Ordered Product"];
+    const columns = ["Update Status", "Status", "Amount (Rwf)", "Ordered by", "Ordered On",
+        "Delivery Phone Number", "Delivery District", "Delivery Phone Color",
+        "Delivery Sector", "Delivery Cell", "Delivery Village", "Delivery Address", "Ordered Product"];
 
 
     const data = orders.map(o => (
-        [showStatus(o), `${o.amount}`, `${o.user.name}`,
+        [showStatus(o), upStatus(o), `${o.amount}`, `${o.user.name}`,
         `${moment(o.createdAt).fromNow()}`, `+250 ${o.phone}`, `${o.district}`,
         `${o.color}`, ` ${o.sector}`,
         ` ${o.cell}`, ` ${o.village}`, ` ${o.address}`, Product(o)]
