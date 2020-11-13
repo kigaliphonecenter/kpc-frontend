@@ -70,7 +70,7 @@ const Card = ({
       cartUpdate && (
         <div>
           <div className="wishPage-input-group">
-           
+
             <input type="number" className="form-control" value={count} onChange={handleChange(product._id)} />
           </div>
         </div>
@@ -115,9 +115,9 @@ const Card = ({
       </div>
       <div className=" wishPage-title">
 
-         <Link className=" text-center" to={`/product/${product._id}`}>
-            {product.title}
-          </Link>
+        <Link className=" text-center" to={`/product/${product._id}`}>
+          {product.title}
+        </Link>
       </div>
       <div className='wishPage-buttons'>
 
@@ -125,9 +125,9 @@ const Card = ({
 
           {/* {showViewButton(showViewProductButton)} */}
           {showAddToCart(showAddToCartButton)}
-           <span className='wishPage-btns-remov'>
-              {showRemoveButton(showRemoveProductButton)}
-               </span>
+          <span className='wishPage-btns-remov'>
+            {showRemoveButton(showRemoveProductButton)}
+          </span>
           {/* <div className=' wishPage-buttons-btns'>
 
             <div className='wishPage-btns-update'>
