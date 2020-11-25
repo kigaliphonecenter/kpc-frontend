@@ -10,7 +10,7 @@ import Footer from '../core/Footer'
 const Signup = () => {
     const [values, setValues] = useState({
         name: '',
-        email: ' ',
+        email: '',
         password: '',
         error: '',
         success: false
