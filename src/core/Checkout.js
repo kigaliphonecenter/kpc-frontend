@@ -25,21 +25,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
     const userId = isAuthenticated() && isAuthenticated().user._id;
     const token = isAuthenticated() && isAuthenticated().token;
 
-    const getToken = (userId, token) => {
-        getClientToken(userId, token).then(data => {
-            if (data.error) {
-                console.log(data.error);
-                setData({ ...data, error: data.error });
-            } else {
-                console.log(data);
-                setData({ clientToken: data.clientToken });
-            }
-        });
-    };
 
-    useEffect(() => {
-        getToken(userId, token);
-    }, []);
 
     const handleColor = event => {
         setData({ ...data, color: event.target.value });
@@ -131,7 +117,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
     const showDropIn = () => (
         <div onBlur={() => setData({ ...data, error: '' })}>
             <ToastContainer />
-            {data.clientToken !== null && products.length > 0 ? (
+            { products.length > 0 ? (
                 <form className="deliveryInputs ">
 
                     <div className="deliverys mt-4">

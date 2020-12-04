@@ -40,7 +40,7 @@ const Routes = () => {
         <Route path="/signin" exact component={Signin} />
         <Route path="/signup" exact component={Signup} />
         <Route path='/users/password/forget' exact render={props => <ForgetPassword {...props} />} />
-        <Route path='/users/password/reset/:token' exact render={props => <ResetPassword {...props} />} />
+      <Route path='/users/password/reset/:token' exact render={props => <ResetPassword {...props} />} />
         <PrivateRoute path="/user/dashboard" exact component={Dashboard} />
         <AdminRoute path="/admin/dashboard" exact component={AdminDashboard} />
         <AdminRoute path="/create/category" exact component={AddCategory} />

@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import Menu from '../core/Menu'
 
 const ForgetPassword = ({ history }) => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({ 
     email: '',
     textChange: 'Submit'
   });
@@ -58,7 +58,7 @@ const ForgetPassword = ({ history }) => {
      <div className="header-container">
       <div className="signin-header">
       <div className="signin-title">
-        <h3>Reset Password</h3>
+        <h3> Forget Password</h3>
       </div>
     </div>
     </div>
