@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Dropzone from 'react-dropzone';
-import{ PlusOutlined} from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 import Axios from 'axios';
 const API = process.env.REACT_APP_API_URL;
 
@@ -48,13 +48,13 @@ function FileUpload(props) {
                 maxSize={800000000}
             >
                 {({ getRootProps, getInputProps }) => (
-                    <div className='fileUpload-image' 
+                    <div className='fileUpload-image'
                         {...getRootProps()}
                     >
                         <input {...getInputProps()} />
-                        
+
                         {/* <Icon type="plus" style={{ fontSize: '3rem' }} /> */}
-                        <PlusOutlined style={{  fontSize: '27px' }} />
+                        <PlusOutlined style={{ fontSize: '27px' }} />
 
                     </div>
                 )}
@@ -62,9 +62,9 @@ function FileUpload(props) {
 
             <div className='image-right' >
 
-              {Images.map((image, index) => (
+                {Images.map((image, index) => (
                     <div key={index} onClick={() => onDelete(image)}>
-                        <img style={{ minWidth: '300px', width: '300px', height: '240px' }} src={`${process.env.REACT_APP_API_URL}/${image}`} alt={`productImg-${index}`} />
+                        <img style={{ minWidth: '150px', width: '150px', height: '140px' }} src={`${process.env.REACT_APP_API_URL}/${image}`} alt={`productImg-${index}`} />
                     </div>
                 ))}
 

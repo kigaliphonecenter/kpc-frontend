@@ -4031,8 +4031,8 @@ about Ends Here
   margin-right: 20px;
 
   &-image {
-    width: 300px;
-    height: 240px;
+    width: 150px;
+    height: 150px;
     border: 1px solid lightgray;
     border-radius: 10px;
     display: flex;
@@ -4044,8 +4044,8 @@ about Ends Here
 
   .image-right {
     display: flex;
-    width: 300px;
-    height: 240px;
+    width: 990px;
+    height: 150px;
     overflow-x: auto;
 
   }
@@ -6733,7 +6733,8 @@ margin-top: -2rem;
 
     .image-right {
       display: flex;
-      width: 200px;
+      flex-direction: column;
+      width: 100%;
       height: 140px;
     }
   }
@@ -15478,7 +15479,8 @@ margin-top: -2rem;
 
     .image-right {
       display: flex;
-      width: 200px;
+      flex-direction: column;
+      width: 100%;
       height: 140px;
     }
   }
@@ -18471,7 +18473,8 @@ margin-top: -2rem;
 
     .image-right {
       display: flex;
-      width: 200px;
+      flex-direction: column;
+      width: 100%;
       height: 140px;
     }
   }

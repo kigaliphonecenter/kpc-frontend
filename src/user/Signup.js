@@ -40,7 +40,11 @@ const Signup = () => {
             }
         });
     };
-
+    const scrollToTop = () => {
+        // window.location.reload(false);
+        window.scrollTo({top:0, behavior: 'smooth'});
+       
+      } 
     const signUpForm = () => (
         <div className="register-container">
             <div className="header-container">
@@ -57,7 +61,7 @@ const Signup = () => {
                     <p><span>*</span> Stands for Required Informations.</p>
                 </div>
 
-                <form className="register-form">
+                <form onSubmit={clickSubmit}  className="register-form">
                     <div className="fullName">
                         <label htmlFor="fullName">Full Name <span>*</span></label>
                         <input onChange={handleChange('name')} type="text" name="register" id="fullName" placeholder="Enter Full Name" className="validate" autoComplete="off" value={name} required />
@@ -75,7 +79,7 @@ const Signup = () => {
                     </div>
 
                     <div className="button">
-                        <button onClick={clickSubmit} type="submit">Register</button>
+                        <button onClick={scrollToTop}  type="submit">Register</button>
                     </div>
 
                     <div className="more-info">
